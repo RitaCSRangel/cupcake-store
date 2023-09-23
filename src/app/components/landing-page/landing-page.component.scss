@@ -84,13 +84,31 @@
     height: 22px;
 }
 
+.hero-elipse-container {
+    display: flex;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.40) 0%, rgba(255, 255, 255, 0.70) 100%);
+    border-radius: 300px;
+    width: 450px;
+    height: 450px;
+    align-items: center;
+    justify-content: center;
+}
+
 .hero-elipse {
     background-color: #2F2105;
     border-radius: 200px;
     width: 416px;
     height: 416px;
-    padding-bottom: 50px;
-    padding-left: 40px;
+    padding: 20px;
+}
+
+.hero-image{
+    background-image: url(../../../assets/landing-page/coffe-cupcake.jpg);
+    background-size: cover;
+    background-position: left;
+    width: 100%;
+    height: 100%;
+    border-radius: 200px;
 }
 
 .popular-items {

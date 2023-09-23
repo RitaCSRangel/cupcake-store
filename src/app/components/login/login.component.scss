@@ -1,0 +1,28 @@
+.container {
+    height: 100vh;
+    background-image: url(../../../assets/login/login-br.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: #F6EBDA;
+}
+
+.content {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    padding: 20rem 0rem 20rem 40rem;
+
+}
+
+.access-card{
+    display: flex;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.40) 0%, rgba(255, 255, 255, 0.70) 100%);
+    border-radius: 12px;
+    border-color: transparent;
+    filter: drop-shadow(0 6mm 2mm rgb(0, 0, 0, 0.2));
+    height: 519px;
+    padding: 0.5rem;
+    width: 539px;
+}
