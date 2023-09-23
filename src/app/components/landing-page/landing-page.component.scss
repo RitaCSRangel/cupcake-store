@@ -1,34 +1,38 @@
+// MEDIA 2560
+
 .container {
     height: 2430px;
     background-image: url(../../../assets/landing-page/website-bg.png);
     background-size: contain;
+    background-repeat: no-repeat;
+    background-color: white;
 }
 
 .banner {
     width: 100%;
     display: flex;
     margin-top: 10%;
-    height: 470px;
+    margin-bottom: 10rem;
 }
 
 .hero {
     width: 100%;
     display: flex;
     justify-content: space-between;
+    padding: 0rem 5rem 0rem 5rem;
 }
 
 .content-hero {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-    width: 30.563rem;
-    margin-left: 4rem;
-    margin-bottom: 4rem;
+    width: auto;
+    max-width: 30rem;
 }
 
 .banner-title {
     color: #2F2105;
-    font-size: 3rem;
+    font-size: 2rem;
     font-weight: 600;
     word-wrap: break-word;
 
@@ -42,7 +46,7 @@
 
 .banner-subtitle {
     color: #7E7D7A;
-    font-size: 1.125rem;
+    font-size: 1rem;
     font-weight: 400;
     word-wrap: break-word;
 }
@@ -50,7 +54,7 @@
 .filled-button {
     width: 12rem;
     height: auto;
-    padding: 1rem;
+    padding: 0.5rem;
     background: #2F2105;
     border-radius: 2.063rem;
     justify-content: center;
@@ -89,8 +93,11 @@
     padding-left: 40px;
 }
 
-.popular-items{
-    padding: 0rem 8rem 0rem 8rem;
+.popular-items {
+    display: flex;
+    flex-direction: column;
+    padding: 0rem 6rem 0rem 6rem;
+    margin-bottom: 10rem;
 }
 
 .popular-text {
@@ -99,40 +106,30 @@
     font-weight: 600;
     letter-spacing: 1.28px;
     word-wrap: break-word;
-    width: 205px;
-    margin-bottom: 3rem;
-}
+    margin-bottom: 1rem;
 
-.underline-container {
-    display: flex;
-    width: 100%;
-    justify-content: flex-end;
-}
-
-.popular-underline {
-    display: flex;
-    width: 80px;
-    background-color: #FF902B;
-    height: 6px;
+    &.alt {
+        color: #FF902B;
+    }
 }
 
 .cards {
     display: flex;
     width: 100%;
-    justify-content: space-between;
-    margin-bottom: 10rem;
+    justify-content: center;
     gap: 1rem;
 }
 
 .card {
+    display: flex;
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.40) 0%, rgba(255, 255, 255, 0.70) 100%);
     border-radius: 12px;
     border-color: transparent;
     filter: drop-shadow(0 6mm 2mm rgb(0, 0, 0, 0.2));
-    height: 350px;
+    height: 16rem;
     padding: 0.5rem;
     justify-content: space-between;
-    width: 360px;
+    width: 16rem;
 }
 
 .card-content {
@@ -145,9 +142,10 @@
 
 .card-image {
     background-image: url(../../../assets/landing-page/product-image-example.png);
-    height: 225px;
+    height: 60%;
     border-radius: 12px;
     padding: 0.5rem;
+    background-position: center;
 }
 
 .card-nota {
@@ -183,7 +181,7 @@
     flex-direction: column;
 }
 
-.card-icon{
+.card-icon {
     display: flex;
     flex-direction: row-reverse;
 }
@@ -209,9 +207,9 @@
 .delivery-info {
     display: flex;
     width: 100%;
-    padding: 0rem 10rem 0rem 10rem;
+    padding: 0rem 5rem 0rem 5rem;
     flex-direction: column;
-    margin-bottom: 5rem;
+    margin-bottom: 10rem;
 }
 
 .delivery-text {
@@ -222,18 +220,15 @@
     word-wrap: break-word;
     width: 523px;
     margin-bottom: 3rem;
-}
 
-.delivery-underline {
-    display: flex;
-    width: 136px;
-    background-color: #FF902B;
-    height: 6px;
+    &.alt {
+        color: #FF902B;
+    }
 }
 
 .delivery-desc {
     display: flex;
-    width: 100%;
+    gap: 1rem;
     justify-content: space-between;
 }
 
@@ -268,33 +263,35 @@
     display: flex;
     width: 100%;
     padding-left: 12rem;
-    gap: 10rem;
+    gap: 6rem;
 }
 
 .about-us-card {
+    display: flex;
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.40) 0%, rgba(255, 255, 255, 0.70) 100%);
     border-radius: 12px;
     border-color: transparent;
     filter: drop-shadow(0 6mm 2mm rgb(0, 0, 0, 0.2));
     padding: 0.5rem;
     justify-content: space-between;
-    width: 375px;
-    height: 515px;
+    width: 20rem;
+    height: 25rem;
 }
 
 .about-us-image {
     background-image: url(../../../assets/landing-page/vertical-coffe.png);
-    width: 360px;
-    height: 499px;
+    background-position: center;
+    width: 100%;
+    height: 100%;
     border-radius: 12px;
     padding: 0.5rem;
 }
 
 .about-us-desc {
     display: flex;
-    padding-top: 12rem;
-    width: 478px;
+    padding-top: 8rem;
     flex-direction: column;
+    max-width: 30rem;
 }
 
 .about-us-text {
@@ -309,13 +306,10 @@
     &.title {
         width: 157px;
     }
-}
 
-.underline-about-us {
-    display: flex;
-    width: 60px;
-    background-color: #FF902B;
-    height: 6px;
+    &.alt {
+        color: #FF902B;
+    }
 }
 
 .about-us-subtitle {
@@ -324,3 +318,69 @@
     font-weight: 400;
     word-wrap: break-word;
 }
+
+
+@media (max-width: 1280px) {
+
+    .banner {
+        margin-bottom: 4rem;
+    }
+
+    .popular-items{
+        margin-bottom: 6rem;
+    }
+
+    .delivery-info{
+        margin-bottom: 5rem;
+    }
+}
+
+@media (max-width: 1024px) {
+
+    .banner {
+        margin-bottom: 0rem;
+    }
+    
+    .hero {
+        padding: 0rem 2rem 0rem 2rem;
+    }
+
+    .popular-items {
+        padding: 0rem 3rem 0rem 3rem;
+        margin-top: -1rem;
+        margin-bottom: 4rem;
+    }
+
+    .popular-text {
+        margin-bottom: 1rem;
+        margin-top: -2rem;
+    }
+
+    .delivery-info {
+        padding: 0rem 2rem 0rem 2rem;
+    }
+
+    .delivery-subtitle {
+        font-size: 14px;
+    }
+
+    .about-us{
+        padding-left: 5rem;
+    }
+
+    .about-us-card {
+        width: 50rem;
+        height: 18rem;
+    }
+
+    .about-us-desc {
+        display: flex;
+        padding-top: 2rem;
+        flex-direction: column;
+        max-width: 30rem;
+    }
+}
+
+@media (max-width: 768px) {}
+
+@media (max-width: 375px) {}
