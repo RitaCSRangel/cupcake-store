@@ -48,7 +48,7 @@
 }
 
 .filled-button {
-    width: 10rem;
+    width: 12rem;
     height: auto;
     padding: 1rem;
     background: #2F2105;
@@ -70,11 +70,14 @@
     border-radius: 6.25rem;
     justify-content: center;
     align-items: center;
+    width: 32px;
+    height: 32px;
 }
 
 
 .filled-button-icon {
-    padding: 0.313rem;
+    width: 22px;
+    height: 22px;
 }
 
 .hero-elipse {
@@ -118,6 +121,7 @@
     width: 100%;
     justify-content: space-between;
     margin-bottom: 10rem;
+    gap: 1rem;
 }
 
 .card {
@@ -128,7 +132,7 @@
     height: 350px;
     padding: 0.5rem;
     justify-content: space-between;
-    width: 335px;
+    width: 360px;
 }
 
 .card-content {
@@ -175,7 +179,13 @@
 .card-description {
     display: flex;
     width: 100%;
-    padding: 1rem;
+    padding: 0.5rem;
+    flex-direction: column;
+}
+
+.card-icon{
+    display: flex;
+    flex-direction: row-reverse;
 }
 
 .card-h {
