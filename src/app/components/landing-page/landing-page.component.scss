@@ -126,7 +126,7 @@
     border-radius: 12px;
     border-color: transparent;
     filter: drop-shadow(0 6mm 2mm rgb(0, 0, 0, 0.2));
-    height: 16rem;
+    height: 20rem;
     padding: 0.5rem;
     justify-content: space-between;
     width: 16rem;
@@ -289,7 +289,7 @@
 
 .about-us-desc {
     display: flex;
-    padding-top: 8rem;
+    padding-top: 5rem;
     flex-direction: column;
     max-width: 30rem;
 }
@@ -332,6 +332,14 @@
 
     .delivery-info{
         margin-bottom: 5rem;
+    }
+
+    .about-us-desc {
+        padding-top: 8rem;
+    }
+
+    .card {
+        height: 16rem;
     }
 }
 
