@@ -1,9 +1,9 @@
 // MEDIA 2560
 
 .container {
-    height: 2430px;
+    height: auto;
     background-image: url(../../../assets/landing-page/website-bg.png);
-    background-size: contain;
+    background-size: auto;
     background-repeat: no-repeat;
     background-color: white;
 }
@@ -12,7 +12,7 @@
     width: 100%;
     display: flex;
     margin-top: 10%;
-    margin-bottom: 10rem;
+    margin-bottom: 8rem;
 }
 
 .hero {
@@ -106,9 +106,11 @@
     font-weight: 600;
     letter-spacing: 1.28px;
     word-wrap: break-word;
-    margin-bottom: 1rem;
+    margin-bottom: 4rem;
+    padding-left: 2.5rem;
 
     &.alt {
+        padding-left: 0rem;
         color: #FF902B;
     }
 }
@@ -209,7 +211,7 @@
     width: 100%;
     padding: 0rem 5rem 0rem 5rem;
     flex-direction: column;
-    margin-bottom: 10rem;
+    margin-bottom: 16rem;
 }
 
 .delivery-text {
@@ -264,6 +266,7 @@
     width: 100%;
     padding-left: 12rem;
     gap: 6rem;
+    margin-bottom: 4rem;
 }
 
 .about-us-card {
@@ -322,6 +325,10 @@
 
 @media (max-width: 1280px) {
 
+    .container {
+        background-size: cover;
+    }
+
     .banner {
         margin-bottom: 4rem;
     }
@@ -330,12 +337,17 @@
         margin-bottom: 6rem;
     }
 
+    .popular-text{
+        padding-left: 1rem;
+        margin-bottom: 2rem;
+    }
+
     .delivery-info{
         margin-bottom: 5rem;
     }
 
     .about-us-desc {
-        padding-top: 8rem;
+        padding-top: 5rem;
     }
 
     .card {
@@ -378,7 +390,7 @@
 
     .about-us-card {
         width: 50rem;
-        height: 18rem;
+        height: 20rem;
     }
 
     .about-us-desc {
