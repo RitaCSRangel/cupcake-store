@@ -1,0 +1,316 @@
+.container {
+    height: 2430px;
+    background-image: url(../../../assets/landing-page/website-bg.png);
+    background-size: contain;
+}
+
+.banner {
+    width: 100%;
+    display: flex;
+    margin-top: 10%;
+    height: 470px;
+}
+
+.hero {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.content-hero {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 30.563rem;
+    margin-left: 4rem;
+    margin-bottom: 4rem;
+}
+
+.banner-title {
+    color: #2F2105;
+    font-size: 3rem;
+    font-weight: 600;
+    word-wrap: break-word;
+
+    &.alt {
+        color: #FF902B;
+        font-size: 3rem;
+        font-weight: 600;
+        word-wrap: break-word;
+    }
+}
+
+.banner-subtitle {
+    color: #7E7D7A;
+    font-size: 1.125rem;
+    font-weight: 400;
+    word-wrap: break-word;
+}
+
+.filled-button {
+    width: 10rem;
+    height: auto;
+    padding: 1rem;
+    background: #2F2105;
+    border-radius: 2.063rem;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    text-align: center;
+    color: white;
+    font-size: 0.875rem;
+    font-weight: 600;
+    word-wrap: break-word;
+    gap: 0.5rem;
+}
+
+.filled-button-iconBG {
+    display: flex;
+    background-color: #FF902B;
+    border-radius: 6.25rem;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.filled-button-icon {
+    padding: 0.313rem;
+}
+
+.hero-elipse {
+    background-color: #2F2105;
+    border-radius: 200px;
+    width: 416px;
+    height: 416px;
+    padding-bottom: 50px;
+    padding-left: 40px;
+}
+
+.popular-items{
+    padding: 0rem 8rem 0rem 8rem;
+}
+
+.popular-text {
+    color: black;
+    font-size: 32px;
+    font-weight: 600;
+    letter-spacing: 1.28px;
+    word-wrap: break-word;
+    width: 205px;
+    margin-bottom: 3rem;
+}
+
+.underline-container {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+}
+
+.popular-underline {
+    display: flex;
+    width: 80px;
+    background-color: #FF902B;
+    height: 6px;
+}
+
+.cards {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 10rem;
+}
+
+.card {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.40) 0%, rgba(255, 255, 255, 0.70) 100%);
+    border-radius: 12px;
+    border-color: transparent;
+    filter: drop-shadow(0 6mm 2mm rgb(0, 0, 0, 0.2));
+    height: 350px;
+    padding: 0.5rem;
+    justify-content: space-between;
+    width: 335px;
+}
+
+.card-content {
+    width: 100%;
+    height: 100%;
+    background: white;
+    border-radius: 12px;
+    padding: 1rem;
+}
+
+.card-image {
+    background-image: url(../../../assets/landing-page/product-image-example.png);
+    height: 225px;
+    border-radius: 12px;
+    padding: 0.5rem;
+}
+
+.card-nota {
+    width: 70px;
+    height: 34px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.70) 0%, rgba(255, 255, 255, 0.40) 100%);
+    border-radius: 27px;
+    filter: drop-shadow(0 6mm 2mm rgb(0, 0, 0, 0.2));
+    display: flex;
+    padding: 0.2rem;
+}
+
+.nota {
+    padding: 10px;
+    background: white;
+    border-radius: 50px;
+    justify-content: center;
+    align-items: center;
+    display: inline-flex;
+    color: #2F2105;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.56px;
+    word-wrap: break-word;
+    width: 100%;
+    gap: 6px;
+}
+
+.card-description {
+    display: flex;
+    width: 100%;
+    padding: 1rem;
+}
+
+.card-h {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    color: #2F2105;
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: 0.96px;
+    word-wrap: break-word;
+}
+
+.content {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.delivery-info {
+    display: flex;
+    width: 100%;
+    padding: 0rem 10rem 0rem 10rem;
+    flex-direction: column;
+    margin-bottom: 5rem;
+}
+
+.delivery-text {
+    color: black;
+    font-size: 32px;
+    font-weight: 600;
+    letter-spacing: 1.28px;
+    word-wrap: break-word;
+    width: 523px;
+    margin-bottom: 3rem;
+}
+
+.delivery-underline {
+    display: flex;
+    width: 136px;
+    background-color: #FF902B;
+    height: 6px;
+}
+
+.delivery-desc {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.delivery-path {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.delivery-image {
+    width: 160px;
+    height: 159px;
+}
+
+.delivery-title {
+    color: #2F2105;
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: 0.96px;
+    word-wrap: break-word
+}
+
+.delivery-subtitle {
+    color: black;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 0.72px;
+    word-wrap: break-word
+}
+
+.about-us {
+    display: flex;
+    width: 100%;
+    padding-left: 12rem;
+    gap: 10rem;
+}
+
+.about-us-card {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.40) 0%, rgba(255, 255, 255, 0.70) 100%);
+    border-radius: 12px;
+    border-color: transparent;
+    filter: drop-shadow(0 6mm 2mm rgb(0, 0, 0, 0.2));
+    padding: 0.5rem;
+    justify-content: space-between;
+    width: 375px;
+    height: 515px;
+}
+
+.about-us-image {
+    background-image: url(../../../assets/landing-page/vertical-coffe.png);
+    width: 360px;
+    height: 499px;
+    border-radius: 12px;
+    padding: 0.5rem;
+}
+
+.about-us-desc {
+    display: flex;
+    padding-top: 12rem;
+    width: 478px;
+    flex-direction: column;
+}
+
+.about-us-text {
+    color: black;
+    font-size: 32px;
+    font-weight: 600;
+    letter-spacing: 1.28px;
+    word-wrap: break-word;
+    width: 100%;
+    margin-bottom: 0.5rem;
+
+    &.title {
+        width: 157px;
+    }
+}
+
+.underline-about-us {
+    display: flex;
+    width: 60px;
+    background-color: #FF902B;
+    height: 6px;
+}
+
+.about-us-subtitle {
+    color: #7E7D7A;
+    font-size: 1.125rem;
+    font-weight: 400;
+    word-wrap: break-word;
+}
