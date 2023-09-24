@@ -1,25 +1,45 @@
-// MEDIA 2560
-
 .container {
+    //Media 1024
     height: auto;
-    background-image: url(../../../assets/landing-page/website-bg.png);
-    background-size: auto;
+    background-image: url(../../../assets/landing-page/website-bg-small2.png);
     background-repeat: no-repeat;
     background-color: white;
+    background-size: cover;
+
+    @media (min-width: 1025px ) and (max-width: 1280px){
+        background-image: url(../../../assets/landing-page/website-bg-small.png);
+    }
+
+    @media (min-width: 2560px) {
+        background-image: url(../../../assets/landing-page/website-bg-small.png);
+    }
 }
 
 .banner {
+    //Media 1024
     width: 100%;
     display: flex;
     margin-top: 10%;
-    margin-bottom: 8rem;
+
+    @media (min-width: 1025px ) and (max-width: 1280px) {
+        margin-bottom: 4rem;
+    }
+
+    @media (min-width: 2560px) {
+        margin-bottom: 7rem;
+    }
 }
 
 .hero {
+    //Media 1024
     width: 100%;
     display: flex;
     justify-content: space-between;
-    padding: 0rem 5rem 0rem 5rem;
+    padding: 0rem 2rem 0rem 2rem;
+
+    @media (min-width: 2560px) {
+        padding: 0rem 5rem 0rem 5rem;
+    }
 }
 
 .content-hero {
@@ -35,10 +55,10 @@
     font-size: 2rem;
     font-weight: 600;
     word-wrap: break-word;
+    font-family: Poppins;
 
     &.alt {
         color: #FF902B;
-        font-size: 3rem;
         font-weight: 600;
         word-wrap: break-word;
     }
@@ -49,6 +69,7 @@
     font-size: 1rem;
     font-weight: 400;
     word-wrap: break-word;
+    font-family: Poppins;
 }
 
 .filled-button {
@@ -66,6 +87,7 @@
     font-weight: 600;
     word-wrap: break-word;
     gap: 0.5rem;
+    animation: scale-up-center 0.8s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 }
 
 .filled-button-iconBG {
@@ -82,6 +104,60 @@
 .filled-button-icon {
     width: 22px;
     height: 22px;
+}
+
+.bubbles{
+    position: absolute;
+    width: 450px;
+    height: 450px;
+}
+
+
+.bubble-card{
+    position: absolute;
+    width: 180px;
+    height: 50px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.70) 0%, rgba(255, 255, 255, 0.40) 100%);
+    border-radius: 27px;
+    filter: drop-shadow(0 6mm 2mm rgb(0, 0, 0, 0.2));
+    display: flex;
+    padding: 0.2rem;
+    animation: scale-up-center 0.8s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+
+
+    &.position1{
+        left: 60%;
+        top: 10%;
+    }
+
+    
+    &.position2{
+        left: 5%;
+        top: 80%;
+    }
+
+    
+    &.position3{
+        left: 2%;
+        top: 30%;
+    }
+}
+  
+
+.bubble{
+    padding: 10px;
+    background: white;
+    border-radius: 50px;
+    justify-content: center;
+    align-items: center;
+    display: inline-flex;
+    color: #2F2105;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.56px;
+    word-wrap: break-word;
+    width: 100%;
+    gap: 6px;
 }
 
 .hero-elipse-container {
@@ -114,8 +190,22 @@
 .popular-items {
     display: flex;
     flex-direction: column;
-    padding: 0rem 6rem 0rem 6rem;
-    margin-bottom: 10rem;
+
+    padding: 0rem 3rem 0rem 3rem;
+    margin-top: -1.6rem;
+    margin-bottom: 4rem;
+
+    
+    @media (min-width: 1025px ) and (max-width: 1280px) {
+        margin-top: -1rem;
+        margin-bottom: 6rem;
+    }
+
+    @media (min-width: 2560px) {
+        padding: 0rem 6rem 0rem 6rem;
+        margin-top: 0rem;
+        margin-bottom: 10rem;
+    }
 }
 
 .popular-text {
@@ -124,12 +214,23 @@
     font-weight: 600;
     letter-spacing: 1.28px;
     word-wrap: break-word;
-    margin-bottom: 4rem;
-    padding-left: 2.5rem;
+    font-family: Poppins;
+    margin-top: -2rem;
+    padding-left: 2rem;
+    margin-bottom: 2rem;
 
     &.alt {
         padding-left: 0rem;
         color: #FF902B;
+    }
+
+    @media (min-width: 1025px ) and (max-width: 1280px) {
+        margin-bottom: 2rem;
+    }
+
+    @media (min-width: 2560px) {
+        margin-bottom: 2rem;
+        padding-left: 2.5rem;
     }
 }
 
@@ -146,10 +247,20 @@
     border-radius: 12px;
     border-color: transparent;
     filter: drop-shadow(0 6mm 2mm rgb(0, 0, 0, 0.2));
-    height: 20rem;
+    height: 13rem;
+    width: 15rem;
     padding: 0.5rem;
     justify-content: space-between;
-    width: 16rem;
+
+    @media (min-width: 1025px ) and (max-width: 1280px) {
+        height: 18rem;
+        width: 18rem;
+    }
+
+    @media (min-width: 2560px) {
+        height: 21rem;
+        width: 20rem;
+    }
 }
 
 .card-content {
@@ -176,6 +287,7 @@
     filter: drop-shadow(0 6mm 2mm rgb(0, 0, 0, 0.2));
     display: flex;
     padding: 0.2rem;
+    animation: scale-up-center 0.8s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 }
 
 .nota {
@@ -199,6 +311,14 @@
     width: 100%;
     padding: 0.5rem;
     flex-direction: column;
+
+    @media (min-width: 1025px ) and (max-width: 1280px) {
+        gap: 1rem;
+    }
+
+    @media (min-width: 2560px) {
+        gap: 1rem;
+    }
 }
 
 .card-icon {
@@ -211,10 +331,15 @@
     width: 100%;
     justify-content: space-between;
     color: #2F2105;
-    font-size: 24px;
     font-weight: 600;
     letter-spacing: 0.96px;
     word-wrap: break-word;
+    font-family: Poppins;
+    font-size: 1rem;
+
+    @media (min-width: 2560px) {
+        font-size: 24px;
+    }
 }
 
 .content {
@@ -227,9 +352,20 @@
 .delivery-info {
     display: flex;
     width: 100%;
-    padding: 0rem 5rem 0rem 5rem;
     flex-direction: column;
-    margin-bottom: 16rem;
+    padding: 0rem 2rem 0rem 2rem;
+    margin-bottom: 7.5rem;
+
+    @media (min-width: 1025px ) and (max-width: 1280px) {
+        margin-bottom: 10.5rem;
+        padding: 0rem 2rem 0rem 2rem;
+    }
+
+    @media (min-width: 2560px) {
+        padding: 0rem 5rem 0rem 5rem;
+        margin-bottom: 13rem;
+    }
+
 }
 
 .delivery-text {
@@ -238,8 +374,8 @@
     font-weight: 600;
     letter-spacing: 1.28px;
     word-wrap: break-word;
-    width: 523px;
     margin-bottom: 3rem;
+    font-family: Poppins;
 
     &.alt {
         color: #FF902B;
@@ -256,6 +392,15 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 263px;
+
+    @media (min-width: 1025px ) and (max-width: 1280px) {
+        width: auto;
+    }
+
+    @media (min-width: 2560px) {
+        width: auto;
+    }
 }
 
 .delivery-image {
@@ -265,26 +410,48 @@
 
 .delivery-title {
     color: #2F2105;
-    font-size: 24px;
+    font-size: 1rem;
     font-weight: 600;
     letter-spacing: 0.96px;
-    word-wrap: break-word
+    word-wrap: break-word;
+    font-family: Poppins;
+
+    @media (min-width: 1025px ) and (max-width: 1280px) {
+        font-size: 18px;
+    }
+
+    @media (min-width: 2560px) {
+        font-size: 24px;
+    }
 }
 
 .delivery-subtitle {
     color: black;
-    font-size: 18px;
+    font-size: 1rem;
     font-weight: 400;
     letter-spacing: 0.72px;
-    word-wrap: break-word
+    word-wrap: break-word;
+    font-family: Poppins;
+
+    @media (min-width: 1025px ) and (max-width: 1280px) {
+        font-size: 18px;
+    }
+
+    @media (min-width: 2560px) {
+        font-size: 18px;
+    }
 }
 
 .about-us {
     display: flex;
     width: 100%;
-    padding-left: 12rem;
+    padding-left: 5rem;
     gap: 6rem;
     margin-bottom: 4rem;
+
+    @media (min-width: 2560px) {
+        padding-left: 12rem;
+    }
 }
 
 .about-us-card {
@@ -295,8 +462,18 @@
     filter: drop-shadow(0 6mm 2mm rgb(0, 0, 0, 0.2));
     padding: 0.5rem;
     justify-content: space-between;
-    width: 20rem;
-    height: 25rem;
+    width: 18rem;
+    height: 18rem;
+
+    @media (min-width: 1025px ) and (max-width: 1280px) {
+        width: 20rem;
+        height: 22rem;
+    }
+
+    @media (min-width: 2560px) {
+        width: 20rem;
+        height: 25rem;
+    }
 }
 
 .about-us-image {
@@ -310,26 +487,43 @@
 
 .about-us-desc {
     display: flex;
-    padding-top: 5rem;
+    padding-top: 1rem;
     flex-direction: column;
     max-width: 30rem;
+
+    @media (min-width: 1025px ) and (max-width: 1280px) {
+        padding-top: 2rem;
+    }
+
+    @media (min-width: 2560px) {
+        padding-top: 5rem;
+    }
 }
 
 .about-us-text {
     color: black;
-    font-size: 32px;
+    font-size: 24px;
     font-weight: 600;
     letter-spacing: 1.28px;
     word-wrap: break-word;
     width: 100%;
     margin-bottom: 0.5rem;
+    font-family: Poppins;
 
     &.title {
-        width: 157px;
+        width: 100%;
     }
 
     &.alt {
         color: #FF902B;
+    }
+
+    @media (min-width: 1025px ) and (max-width: 1280px) {
+        font-size: 32px;
+    }
+
+    @media (min-width: 2560px) {
+        font-size: 32px;
     }
 }
 
@@ -340,85 +534,13 @@
     word-wrap: break-word;
 }
 
-
-@media (max-width: 1280px) {
-
-    .container {
-        background-size: cover;
+@keyframes scale-up-center {
+    0% {
+      -webkit-transform: scale(0);
+              transform: scale(0);
     }
-
-    .banner {
-        margin-bottom: 4rem;
+    100% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
     }
-
-    .popular-items{
-        margin-bottom: 6rem;
-    }
-
-    .popular-text{
-        padding-left: 1rem;
-        margin-bottom: 2rem;
-    }
-
-    .delivery-info{
-        margin-bottom: 5rem;
-    }
-
-    .about-us-desc {
-        padding-top: 5rem;
-    }
-
-    .card {
-        height: 16rem;
-    }
-}
-
-@media (max-width: 1024px) {
-
-    .banner {
-        margin-bottom: 0rem;
-    }
-    
-    .hero {
-        padding: 0rem 2rem 0rem 2rem;
-    }
-
-    .popular-items {
-        padding: 0rem 3rem 0rem 3rem;
-        margin-top: -1rem;
-        margin-bottom: 4rem;
-    }
-
-    .popular-text {
-        margin-bottom: 1rem;
-        margin-top: -2rem;
-    }
-
-    .delivery-info {
-        padding: 0rem 2rem 0rem 2rem;
-    }
-
-    .delivery-subtitle {
-        font-size: 14px;
-    }
-
-    .about-us{
-        padding-left: 5rem;
-    }
-
-    .about-us-card {
-        width: 50rem;
-        height: 20rem;
-    }
-
-    .about-us-desc {
-        display: flex;
-        padding-top: 2rem;
-        flex-direction: column;
-        max-width: 30rem;
-    }
-}
-
-@media (max-width: 768px) {}
-
-@media (max-width: 375px) {}
+  }

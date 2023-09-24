@@ -24,12 +24,38 @@
     word-wrap: break-word;
     margin-bottom: 4rem;
     flex-direction: column;
+    font-family: Poppins;
 }
 
 .underline {
     height: 6px;
     width: 120px;
     background-color: #FF902B;
+}
+
+.tabs{
+    width: 100%;
+    display: flex;
+    gap: 2rem;
+    padding-left: 4rem;
+}
+
+.tabName{
+    display: flex;
+    color: black;
+    font-size: 1.5rem;
+    font-weight: 600;
+    word-wrap: break-word;
+    margin-bottom: 2rem;
+    flex-direction: column;
+    font-family: Poppins;
+    padding: 1rem;
+
+    &.active{
+        background-color: #FF902B;
+        color: white;
+        border-radius: 40px;
+    }
 }
 
 .cards {
@@ -104,6 +130,11 @@
     gap: 1rem;
 }
 
+.card-title{
+    font-size: 1rem;
+    font-family: Poppins;
+}
+
 .card-icon {
     display: flex;
     flex-direction: row-reverse;
@@ -118,6 +149,7 @@
     font-weight: 600;
     letter-spacing: 0.96px;
     word-wrap: break-word;
+    font-family: Poppins;
 }
 
 .filled-button-iconBG {
@@ -135,45 +167,3 @@
     width: 20px;
     height: 20px;
 }
-
-.cart {
-    display: flex;
-    margin-bottom: 10rem;
-    width: 100%;
-    justify-content: flex-end;
-    gap: 8rem;
-    padding-right: 10rem;
-    align-items: center;
-}
-
-button {
-    border: none;
-}
-
-.cart-button {
-    display: flex;
-    background-color: white;
-    padding: 0.4rem 1rem;
-    border-radius: 25px;
-    gap: 0.5rem;
-    color: #2F2105;
-    font-size: 24px;
-    font-weight: 600;
-    letter-spacing: 0.96px;
-    word-wrap: break-word
-}
-
-
-@media (max-width: 1280px) {
-}
-
-@media (max-width: 1024px) {
-    .cart{
-        padding-right: 3rem;
-        gap: 5rem;
-    }
-}
-
-@media (max-width: 768px) {}
-
-@media (max-width: 375px) {}
