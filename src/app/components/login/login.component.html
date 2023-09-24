@@ -1,32 +1,30 @@
 <div class="container">
     <div class="row">
-        <div class="content">
-
-            <div class="access-card">
-
-                <div *ngIf="login">
+        <div *ngIf="login">
+            <div class="content login">
+                <div class="access-card">
                     <div class="access">
                         <div class="header">
                             <span class="subtitle">Bem vindo ao <span class="subtitle alt">Café Street</span></span>
                             <span class="title">Entrar</span>
                         </div>
-    
+
                         <div class="body">
                             <div class="input-container">
                                 <span>Nome:</span>
                                 <input type="text" placeholder="Nome">
                             </div>
-    
+
                             <div class="input-container">
                                 <span>Senha:</span>
                                 <input type="text" placeholder="Senha">
                             </div>
-    
+
                             <div class="recovery-links">
                                 <span class="link">Ainda não é membro?</span>
                                 <span class="link">Esqueceu a senha?</span>
                             </div>
-    
+
                             <div class="buttons">
                                 <button class="button dark">CADASTRE-SE</button>
                                 <button class="button orange">LOG IN</button>
@@ -34,20 +32,24 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
 
-                <div *ngIf="cadastro">
+        <div *ngIf="cadastro">
+            <div class="content register">
+                <div class="access-card">
                     <div class="access">
                         <div class="header">
                             <span class="subtitle">Bem vindo ao <span class="subtitle alt">Café Street</span></span>
                             <span class="title">Cadastro</span>
                         </div>
-    
+
                         <div class="body">
                             <div class="input-container">
                                 <span>Nome:</span>
                                 <input type="text" placeholder="Nome">
                             </div>
-    
+
                             <div class="input-container">
                                 <span>E-mail:</span>
                                 <input type="text" placeholder="E-mail">
@@ -67,31 +69,35 @@
                                 <span>Senha:</span>
                                 <input type="text" placeholder="Senha">
                             </div>
-    
+
                             <div class="recovery-links right">
                                 <span class="link">Esqueceu a senha?</span>
                             </div>
-    
+
                             <div class="buttons right">
                                 <button class="button orange">CADASTRAR</button>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
 
-                <div *ngIf="esqueciSenha">
+        <div *ngIf="esqueciSenha">
+            <div class="content password">
+                <div class="access-card">
                     <div class="access">
                         <div class="header">
                             <span class="subtitle">Bem vindo ao <span class="subtitle alt">Café Street</span></span>
                             <span class="title">Esqueci a senha</span>
                         </div>
-    
+
                         <div class="body">
                             <div class="input-container">
                                 <span>Nome:</span>
                                 <input type="text" placeholder="Nome">
                             </div>
-    
+
                             <div class="input-container">
                                 <span>Senha nova:</span>
                                 <input type="text" placeholder="Senha">
@@ -102,16 +108,16 @@
                                 <input type="text" placeholder="Senha">
                             </div>
 
-                                
+
                             <div class="buttons center">
                                 <button class="button orange">LOG IN</button>
                             </div>
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
+
 
     </div>
 </div>

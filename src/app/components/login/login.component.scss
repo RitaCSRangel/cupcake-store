@@ -3,22 +3,32 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-color: #F6EBDA;
+    min-height: 100vh;
 }
 
 .content {
     display: flex;
     width: 100%;
-    height: 100%;
     flex-direction: column;
     align-items: center;
-    padding: 18rem 0rem 20rem 20rem;
+    padding: 15rem 0rem 0rem 20rem;
 
     @media (min-width: 1025px ) and (max-width: 1280px) {
-        padding: 18rem 0rem 20rem 30rem;
+        padding: 18rem 0rem 0rem 30rem;
     }
 
     @media (min-width: 2560px) {
-        padding: 18rem 0rem 20rem 40rem;
+        &.login{
+            padding: 30rem 0rem 0rem 40rem;
+        }
+
+        &.register{
+            padding: 18rem 0rem 0rem 40rem;
+        }
+
+        &.password{
+            padding: 18rem 0rem 0rem 40rem;
+        }
     }
 }
 
