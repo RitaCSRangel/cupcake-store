@@ -13,7 +13,8 @@
 
     @media (min-width: 1025px) and (max-width: 1280px) {}
 
-    @media (min-width: 2560px) {}
+    @media (min-width: 2560px) {
+    }
 }
 
 .profile-panel {
@@ -67,13 +68,13 @@
     margin-bottom: 1rem;
 }
 
-.nav{
+.nav {
     display: flex;
     flex-direction: column;
     gap: 1rem;
 }
 
-.nav-item{
+.nav-item {
     display: flex;
     gap: 1.5rem;
 }
@@ -87,11 +88,11 @@ a {
     text-decoration: none;
 }
 
-.icon{
+.icon {
     width: 20px;
 }
 
-.profile-form{
+.profile-form {
     display: flex;
     width: 100%;
     flex-direction: column;
@@ -99,13 +100,13 @@ a {
     gap: 1rem;
 }
 
-.button-area{
+.button-area {
     width: 100%;
     display: flex;
     justify-content: end;
 }
 
-.button{
+.button {
     background-color: #FF902A;
     color: white;
     font-size: 16px;
