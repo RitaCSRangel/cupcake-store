@@ -1,9 +1,15 @@
 .container {
     background-image: url(../../../assets/login/login-br2.png);
     background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
     background-color: #F6EBDA;
     min-height: 100vh;
+
+    
+    @media (min-width: 1025px ) and (max-width: 1280px) {
+        background-position: center;
+    }
 }
 
 .content {
@@ -14,7 +20,7 @@
     padding: 15rem 0rem 0rem 20rem;
 
     @media (min-width: 1025px ) and (max-width: 1280px) {
-        padding: 18rem 0rem 0rem 30rem;
+        padding: 15rem 0rem 0rem 30rem;
     }
 
     @media (min-width: 2560px) {

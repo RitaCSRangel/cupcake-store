@@ -1,3 +1,7 @@
+a{
+text-decoration: none;
+}
+
 .container {
     //Media 1024
     height: auto;
@@ -92,12 +96,20 @@
 
 .filled-button-iconBG {
     display: flex;
-    background-color: #FF902B;
+    background-color: lightgray;
     border-radius: 6.25rem;
     justify-content: center;
     align-items: center;
     width: 32px;
     height: 32px;
+
+    &.inactive{
+        background-color: lightgray;
+    }
+
+    &.active{
+        background-color: #FF902B;
+    }
 }
 
 

@@ -1,3 +1,7 @@
+a{
+    text-decoration: none;
+}
+
 .header-container {
     display: flex;
     width: 50%;
@@ -21,6 +25,10 @@
 
     &.active {
         color: #FF902B;
+    }
+
+    &.hidden{
+        display: none;
     }
 }
 
