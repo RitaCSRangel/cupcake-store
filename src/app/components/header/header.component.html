@@ -3,20 +3,16 @@
         <img src="../../../assets/landing-page/logo_coffe.svg" alt="">
     </div>
     <div class="nav">
-        <span class="nav-text active">Início</span>
-        <span class="nav-text">Cardápio</span>
-        <span class="nav-text">Acessar</span>
+        <a id="inicio" class="nav-text" href="#">Início</a>
+        <a id="cardapio"class="nav-text" href="/cardapio">Cardápio</a>
+        <a id="acessar" class="nav-text" href="/acesso">Acessar</a>
     </div>
-    <span class="profile">
-        <div class="profile-image">
+    <div class="profile">
+        <div *ngIf="logged" class="profile-image" href="/profile">
             <div class="profile-elipse">
                 <img src="../../../assets/landing-page/fluent_person-32-regular.svg" alt="">
             </div>
         </div>
-        <div class="search-bar">
-            <img class="searchbar-icon" src="../../../assets/landing-page/akar-icons_search.svg" alt="">
-            <input type="text" placeholder="Cardápio">
-        </div>
-        <img src="../../../assets/landing-page/cart.svg" alt="">
-    </span>
+        <img src="../../../assets/landing-page/cart-orange.svg" alt="">
+    </div>
 </div>

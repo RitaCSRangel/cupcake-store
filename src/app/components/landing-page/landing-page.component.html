@@ -1,3 +1,5 @@
+<app-header [currentPage]="'landing-page'"></app-header>
+
 <div class="container">
     <div class="row">
 
@@ -16,9 +18,9 @@
                         Aumente sua produtividade e melhore seu humor com uma xícara de café e um docinho pela manhã
                     </span>
 
-                    <button class="filled-button">
+                    <a class="filled-button" href="/cardapio">
                         Peça já o seu!
-                    </button>
+                    </a>
                 </div>
 
                 <div class="content-hero">
@@ -65,82 +67,43 @@
             </div>
 
             <div class="cards">
-
-                <div class="card">
+                <div class="card" *ngFor="let item of popularItems | slice : 0 : 3; let i = index">
                     <div class="card-content">
-                        <div class="card-image">
+                        <div>
+                            <img class="card-image" src="{{item.image}}">
                             <div class="card-nota">
                                 <div class="nota">
-                                    <span>4.8</span>
+                                    <span>{{item.score}}</span>
                                     <img src="../../../assets/landing-page/star.svg" alt="">
                                 </div>
                             </div>
                         </div>
                         <div class="card-description">
                             <div class="card-h">
-                                <span class="card-title">Vanilla Latte</span>
-                                <span class="card-title">21k</span>
+                                <span class="card-title">{{item.name}}</span>
+                                <span class="card-title">R$ {{item.value.toString()}}</span>
                             </div>
-                            <div class="card-icon">
-                                <div class="filled-button-iconBG">
+                            <div class="card-icon" *ngIf="!logged">
+                                <button class="filled-button-iconBG inactive" (click)="addToCart(i)" id="cardbutton-{{i}}">
                                     <img class="filled-button-icon" src="../../../assets/landing-page/cart-white.svg"
                                         alt="">
-                                </div>
+                                </button>
+                            </div>
+
+                            <div class="card-icon" *ngIf="logged">
+                                <button class="filled-button-iconBG active" (click)="addToCart(i)" id="cardbutton-{{i}}">
+                                    <img class="filled-button-icon" src="../../../assets/landing-page/cart-white.svg"
+                                        alt="">
+                                </button>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="card">
-                    <div class="card-content">
-                        <div class="card-image">
-                            <div class="card-nota">
-                                <div class="nota">
-                                    <span>4.8</span>
-                                    <img src="../../../assets/landing-page/star.svg" alt="">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-description">
-                            <div class="card-h">
-                                <span class="card-title">Vanilla Latte</span>
-                                <span class="card-title">21k</span>
-                            </div>
-                            <div class="card-icon">
-                                <div class="filled-button-iconBG">
-                                    <img class="filled-button-icon" src="../../../assets/landing-page/cart-white.svg"
-                                        alt="">
-                                </div>
-                            </div>
-                        </div>
+                    <div class="loginAlert invisible" id="cardalert-{{i}}">
+                        <span class="alert-text">Acesse sua conta para pedir.</span>
+                        <a class="alert-text attention" href="/acesso">Clique aqui!</a>
                     </div>
                 </div>
-
-                <div class="card">
-                    <div class="card-content">
-                        <div class="card-image">
-                            <div class="card-nota">
-                                <div class="nota">
-                                    <span>4.8</span>
-                                    <img src="../../../assets/landing-page/star.svg" alt="">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-description">
-                            <div class="card-h">
-                                <span class="card-title">Vanilla Latte</span>
-                                <span class="card-title">21k</span>
-                            </div>
-                            <div class="card-icon">
-                                <div class="filled-button-iconBG">
-                                    <img class="filled-button-icon" src="../../../assets/landing-page/cart-white.svg"
-                                        alt="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
             </div>
 
         </div>
