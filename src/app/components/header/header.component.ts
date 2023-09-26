@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { checkLogin } from 'src/app/utils/utils';
+import { CartComponent } from '../modals/cart/cart.component';
 
 @Component({
   selector: 'app-header',
@@ -14,7 +16,9 @@ export class HeaderComponent implements OnInit {
   showCart = false;
   @Input() currentPage = '';
 
-  constructor() { }
+  constructor(
+    private modalService: NgbModal
+  ) { }
 
   ngOnInit(): void {
     this.checkCurrentPage();
@@ -50,10 +54,14 @@ export class HeaderComponent implements OnInit {
       document.getElementById('inicio')?.classList.remove('active');
       document.getElementById('cardapio')?.classList.remove('active');
       document.getElementById('acessar')?.classList.add('active');
+    }else if (this.currentPage === 'perfil') {
+      document.getElementById('inicio')?.classList.remove('active');
+      document.getElementById('cardapio')?.classList.remove('active');
+      document.getElementById('acessar')?.classList.remove('active');
     }
   }
 
-  openCart(){
-    this.showCart = !this.showCart;
-  }
+  open() {
+		const modalRef = this.modalService.open(CartComponent, { backdropClass: 'transparent-backdrop' });
+	}
 }

@@ -1,0 +1,17 @@
+<div class="payment">
+    <div class="pay-container">
+        <div class="pay-content">
+            <div class="header">
+                <span>Finalizar compra</span>
+            </div>
+            <div class="body">
+                <div class="item" *ngFor="let item of cart">
+                    <span class="text-area">{{item.name}}</span>
+                    <span>{{item.quantity}}</span>
+                    <span>R$ {{item.quantity * item.value}}</span>
+                    <div class="divider"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

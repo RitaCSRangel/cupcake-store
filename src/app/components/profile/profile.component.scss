@@ -8,9 +8,9 @@
     display: flex;
     width: 100%;
     flex-direction: row;
-    align-items: center;
     height: 100vh;
-
+    align-items: flex-start;
+    padding: 8rem 0rem 8rem 0rem;
     @media (min-width: 1025px) and (max-width: 1280px) {}
 
     @media (min-width: 1280px) {
@@ -21,10 +21,10 @@
     display: flex;
     z-index: 11;
     flex-direction: column;
+    align-items: center;
     gap: 1rem;
     width: 50%;
-    justify-content: center;
-    align-items: center;
+    padding: 0rem 2rem 0rem 2rem;
 }
 
 .elipse-image {
@@ -88,7 +88,7 @@ a {
     text-decoration: none;
 }
 
-.icon {
+.profile-icon {
     width: 20px;
 }
 
@@ -96,7 +96,7 @@ a {
     display: flex;
     width: 100%;
     flex-direction: column;
-    padding: 5rem 5rem 5rem 5rem;
+    padding: 0rem 5rem 0rem 5rem;
     gap: 1rem;
 }
 
@@ -142,6 +142,7 @@ input {
     padding: 0.2rem 1.5rem;
     border-radius: 10px;
     border: solid 1px #ADADAD;
+    color:#c46d1db2
 }
 
 ::placeholder {
@@ -150,4 +151,26 @@ input {
     font-family: Poppins;
     font-weight: 300;
     word-wrap: break-word;
+}
+
+input:focus{
+    outline: none !important;
+    border:1px solid #FF902A;
+}
+
+.endereco{
+    display: flex;
+    gap: 1rem;
+}
+
+.rua{
+    width: 70%;
+}
+
+.numero{
+    width: 30%;
+}
+
+button{
+    border: none;
 }

@@ -8,8 +8,13 @@ import { LandingPageComponent } from './components/landing-page/landing-page.com
 import { ProductsMenuComponent } from './components/products-menu/products-menu.component';
 import { LoginComponent } from './components/login/login.component';
 import { ProfileComponent } from './components/profile/profile.component';
-import { CartComponent } from './components/cart/cart.component';
+import { CartComponent } from './components/modals/cart/cart.component';
 import { LastOrdersComponent } from './components/last-orders/last-orders.component';
+import { CupcakeProductsPipe } from './pipes/products-filter-cupcake';
+import { CoffeeProductsPipe } from './pipes/products-filter-coffee';
+import { FormsModule } from '@angular/forms';
+import { SpinnerComponent } from './components/spinner/spinner.component';
+import { PaymentMethodComponent } from './components/modals/payment-method/payment-method.component';
 
 @NgModule({
   declarations: [
@@ -19,12 +24,17 @@ import { LastOrdersComponent } from './components/last-orders/last-orders.compon
     ProductsMenuComponent,
     LoginComponent,
     ProfileComponent,
+    LastOrdersComponent,
     CartComponent,
-    LastOrdersComponent
+    CupcakeProductsPipe,
+    CoffeeProductsPipe,
+    SpinnerComponent,
+    PaymentMethodComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

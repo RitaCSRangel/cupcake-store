@@ -1,25 +1,4 @@
-a {
-    text-decoration: none;
-}
-
-.cart{
-    position: absolute;
-    left: 55.4%;
-    top: 7%;
-    z-index: 11;
-}
-
-.icon{
-    width: 16px;
-    height: 16px;
-    background-image: url('../../../assets/cart/downarrow.png');
-    rotate: 180deg;
-    margin-left: 60%;
-    background-repeat: no-repeat;
-    margin-bottom: -3px;
-}
-
-.cart-container {
+.pay-container {
     width: 25rem;
     max-height: 25rem;
     flex-shrink: 0;
@@ -27,9 +6,10 @@ a {
     background-color: #ffffff;
     padding: 2rem;
     align-items: center;
+    border: 1px solid gainsboro;
 }
 
-.cart-content {
+.pay-content {
     display: flex;
     gap: 1rem;
     flex-direction: column;
@@ -82,27 +62,4 @@ a {
     font-weight: 400;
     line-height: normal;
     justify-content: flex-end;
-}
-
-.button{
-    width: 100%;
-    display: flex;
-    justify-content: end;
-}
-
-.filled-button {
-    width: 12rem;
-    height: auto;
-    padding: 0.5rem;
-    background: #2F2105;
-    border-radius: 2.063rem;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    text-align: center;
-    color: white;
-    font-size: 0.875rem;
-    font-weight: 600;
-    word-wrap: break-word;
-    gap: 0.5rem;
 }

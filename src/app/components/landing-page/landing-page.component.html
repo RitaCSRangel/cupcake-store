@@ -67,7 +67,7 @@
             </div>
 
             <div class="cards">
-                <div class="card" *ngFor="let item of popularItems | slice : 0 : 3; let i = index">
+                <div class="card" *ngFor="let item of products | slice : 0 : 3; let i = index">
                     <div class="card-content">
                         <div>
                             <img class="card-image" src="{{item.image}}">
@@ -83,19 +83,34 @@
                                 <span class="card-title">{{item.name}}</span>
                                 <span class="card-title">R$ {{item.value.toString()}}</span>
                             </div>
-                            <div class="card-icon" *ngIf="!logged">
-                                <button class="filled-button-iconBG inactive" (click)="addToCart(i)" id="cardbutton-{{i}}">
-                                    <img class="filled-button-icon" src="../../../assets/landing-page/cart-white.svg"
-                                        alt="">
-                                </button>
+
+                            <div class="button-position">
+
+                                <div class="card-button-area" *ngIf="!logged">
+                                    <div class="card-button left inactive" (click)="showAlert(i.toString())"
+                                        id="cardbutton-{{i}}">
+                                        +
+                                    </div>
+                                    <span>{{item.quantity}}</span>
+                                    <div class="card-button rigth inactive" (click)="showAlert(i.toString())"
+                                        id="cardbutton-{{i}}">
+                                        -
+                                    </div>
+                                </div>
+
+                                <div class="card-button-area" *ngIf="logged">
+                                    <div class="card-button left active" (click)="addRemoveToCart(item.id, 'add')"
+                                        id="cardbutton-{{i}}">
+                                        +
+                                    </div>
+                                    <span>{{item.quantity}}</span>
+                                    <div class="card-button rigth active" (click)="addRemoveToCart(item.id, 'rem')"
+                                        id="cardbutton-{{i}}">
+                                        -
+                                    </div>
+                                </div>
                             </div>
 
-                            <div class="card-icon" *ngIf="logged">
-                                <button class="filled-button-iconBG active" (click)="addToCart(i)" id="cardbutton-{{i}}">
-                                    <img class="filled-button-icon" src="../../../assets/landing-page/cart-white.svg"
-                                        alt="">
-                                </button>
-                            </div>
                         </div>
                     </div>
 

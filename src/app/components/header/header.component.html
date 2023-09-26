@@ -5,19 +5,16 @@
     <div class="nav">
         <a id="inicio" class="nav-text" href="#">Início</a>
         <a id="cardapio"class="nav-text" href="/cardapio">Cardápio</a>
-        <a id="acessar" class="nav-text" href="/acesso">Acessar</a>
+        <a *ngIf="!logged" id="acessar" class="nav-text" href="/acesso">Acessar</a>
     </div>
     <div class="profile">
-        <div *ngIf="logged" class="profile-image" href="/profile">
-            <div class="profile-elipse">
+        <div *ngIf="logged" class="profile-image">
+            <a class="profile-elipse" href="/perfil">
                 <img src="../../../assets/landing-page/fluent_person-32-regular.svg" alt="">
-            </div>
+            </a>
         </div>
-        <div (click)="openCart()">
+        <div (click)="open()">
             <img src="../../../assets/landing-page/cart-orange.svg" alt="">
         </div>
     </div>
-</div>
-<div *ngIf="showCart">
-    <app-cart></app-cart>
 </div>

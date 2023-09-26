@@ -98,30 +98,6 @@ button{
     animation: scale-up-center 0.8s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 }
 
-.filled-button-iconBG {
-    display: flex;
-    background-color: lightgray;
-    border-radius: 6.25rem;
-    justify-content: center;
-    align-items: center;
-    width: 32px;
-    height: 32px;
-
-    &.inactive{
-        background-color: lightgray;
-    }
-
-    &.active{
-        background-color: #FF902B;
-    }
-}
-
-
-.filled-button-icon {
-    width: 22px;
-    height: 22px;
-}
-
 .bubbles{
     position: absolute;
     width: 450px;
@@ -361,10 +337,59 @@ img{
     letter-spacing: 0.96px;
     word-wrap: break-word;
     font-family: Poppins;
-    font-size: 1rem;
+    font-size: 0.7rem;
 
     @media (min-width: 1280px) {
-        font-size: 24px;
+        font-size: 1rem;
+    }
+}
+
+.button-position{
+    display: flex;
+    width: 100%;
+    justify-content: end;
+}
+
+.card-button-area {
+    display: flex;
+    background-color: #2F2105;
+    border-radius: 6.25rem;
+    justify-content: center;
+    align-items: center;
+    width: 7rem;
+    height: 32px;
+    justify-content: space-between;
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 400;
+    word-wrap: break-word;
+    font-family: Poppins;
+}
+
+.card-button{
+    display: flex;
+    background-color: lightgray;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 100%;
+
+    &.left{
+        border-top-left-radius: 6.25rem;
+        border-bottom-left-radius: 6.25rem;
+    }
+
+    &.rigth{
+        border-top-right-radius: 6.25rem;
+        border-bottom-right-radius: 6.25rem;
+    }
+
+    &.inactive{
+        background-color: lightgray;
+    }
+
+    &.active{
+        background-color: #FF902B;
     }
 }
 

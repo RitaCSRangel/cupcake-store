@@ -10,276 +10,109 @@
             </div>
 
             <div class="tabs">
-                <span class="tabName active">Cupcakes</span>
-                <span class="tabName">Cafés</span>
+                <span id="cupcake-tab" class="tabName active" (click)="changeTab('cupcake-tab')">Cupcakes</span>
+                <span id="coffee-tab" class="tabName" (click)="changeTab('coffee-tab')">Cafés</span>
             </div>
 
-            <div class="cards">
-    
-                <div class="card">
-                    <div class="card-content">
-                        <div class="card-image">
-                            <div class="card-nota">
-                                <div class="nota">
-                                    <span>4.8</span>
-                                    <img src="../../../assets/landing-page/star.svg" alt="">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-description">
-                            <div class="card-h">
-                                <span class="card-title">Vanilla Latte</span>
-                                <span class="card-title">21k</span>
-                            </div>
-                            <div class="card-icon">
-                                <div class="filled-button-iconBG">
-                                    <img class="filled-button-icon"src="../../../assets/landing-page/cart-white.svg" alt="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-    
-                <div class="card">
-                    <div class="card-content">
-                        <div class="card-image">
-                            <div class="card-nota">
-                                <div class="nota">
-                                    <span>4.8</span>
-                                    <img src="../../../assets/landing-page/star.svg" alt="">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-description">
-                            <div class="card-h">
-                                <span class="card-title">Vanilla Latte</span>
-                                <span class="card-title">21k</span>
-                            </div>
-                            <div class="card-icon">
-                                <div class="filled-button-iconBG">
-                                    <img class="filled-button-icon"src="../../../assets/landing-page/cart-white.svg" alt="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
-                <div class="card">
+            <div class="cards" *ngIf="coffeeTab">
+                <div class="card" *ngFor="let item of cart | productscoffee; index as i">
                     <div class="card-content">
-                        <div class="card-image">
+                        <div>
+                            <img class="card-image" src="{{item.image}}">
                             <div class="card-nota">
                                 <div class="nota">
-                                    <span>4.8</span>
+                                    <span>{{item.score}}</span>
                                     <img src="../../../assets/landing-page/star.svg" alt="">
                                 </div>
                             </div>
                         </div>
                         <div class="card-description">
                             <div class="card-h">
-                                <span class="card-title">Vanilla Latte</span>
-                                <span class="card-title">21k</span>
+                                <span class="card-title">{{item.name}}</span>
+                                <span class="card-title">R$ {{item.value.toString()}}</span>
                             </div>
-                            <div class="card-icon">
-                                <div class="filled-button-iconBG">
-                                    <img class="filled-button-icon"src="../../../assets/landing-page/cart-white.svg" alt="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
-                <div class="card">
-                    <div class="card-content">
-                        <div class="card-image">
-                            <div class="card-nota">
-                                <div class="nota">
-                                    <span>4.8</span>
-                                    <img src="../../../assets/landing-page/star.svg" alt="">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-description">
-                            <div class="card-h">
-                                <span class="card-title">Vanilla Latte</span>
-                                <span class="card-title">21k</span>
-                            </div>
-                            <div class="card-icon">
-                                <div class="filled-button-iconBG">
-                                    <img class="filled-button-icon"src="../../../assets/landing-page/cart-white.svg" alt="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                            <div class="button-position">
 
-                <div class="card">
-                    <div class="card-content">
-                        <div class="card-image">
-                            <div class="card-nota">
-                                <div class="nota">
-                                    <span>4.8</span>
-                                    <img src="../../../assets/landing-page/star.svg" alt="">
+                                <div class="card-button-area" *ngIf="!logged">
+                                    <div class="card-button left inactive"
+                                        id="cardbutton-{{i}}">
+                                        +
+                                    </div>
+                                    <span>{{item.quantity}}</span>
+                                    <div class="card-button rigth inactive"
+                                        id="cardbutton-{{i}}">
+                                        -
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="card-description">
-                            <div class="card-h">
-                                <span class="card-title">Vanilla Latte</span>
-                                <span class="card-title">21k</span>
-                            </div>
-                            <div class="card-icon">
-                                <div class="filled-button-iconBG">
-                                    <img class="filled-button-icon"src="../../../assets/landing-page/cart-white.svg" alt="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
-                <div class="card">
-                    <div class="card-content">
-                        <div class="card-image">
-                            <div class="card-nota">
-                                <div class="nota">
-                                    <span>4.8</span>
-                                    <img src="../../../assets/landing-page/star.svg" alt="">
+                                <div class="card-button-area" *ngIf="logged">
+                                    <div class="card-button left active" (click)="addRemoveToCart(item.id, 'add')"
+                                        id="cardbutton-{{i}}">
+                                        +
+                                    </div>
+                                    <span>{{item.quantity}}</span>
+                                    <div class="card-button rigth active" (click)="addRemoveToCart(item.id, 'rem')"
+                                        id="cardbutton-{{i}}">
+                                        -
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="card-description">
-                            <div class="card-h">
-                                <span class="card-title">Vanilla Latte</span>
-                                <span class="card-title">21k</span>
-                            </div>
-                            <div class="card-icon">
-                                <div class="filled-button-iconBG">
-                                    <img class="filled-button-icon"src="../../../assets/landing-page/cart-white.svg" alt="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
-                <div class="card">
-                    <div class="card-content">
-                        <div class="card-image">
-                            <div class="card-nota">
-                                <div class="nota">
-                                    <span>4.8</span>
-                                    <img src="../../../assets/landing-page/star.svg" alt="">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-description">
-                            <div class="card-h">
-                                <span class="card-title">Vanilla Latte</span>
-                                <span class="card-title">21k</span>
-                            </div>
-                            <div class="card-icon">
-                                <div class="filled-button-iconBG">
-                                    <img class="filled-button-icon"src="../../../assets/landing-page/cart-white.svg" alt="">
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <div class="card">
+            <div class="cards" *ngIf="cupcakeTab">
+                <div class="card" *ngFor="let item of cart | productscupcake; index as i">
                     <div class="card-content">
-                        <div class="card-image">
+                        <div>
+                            <img class="card-image" src="{{item.image}}">
                             <div class="card-nota">
                                 <div class="nota">
-                                    <span>4.8</span>
+                                    <span>{{item.score}}</span>
                                     <img src="../../../assets/landing-page/star.svg" alt="">
                                 </div>
                             </div>
                         </div>
                         <div class="card-description">
                             <div class="card-h">
-                                <span class="card-title">Vanilla Latte</span>
-                                <span class="card-title">21k</span>
+                                <span class="card-title">{{item.name}}</span>
+                                <span class="card-title">R$ {{item.value.toString()}}</span>
                             </div>
-                            <div class="card-icon">
-                                <div class="filled-button-iconBG">
-                                    <img class="filled-button-icon"src="../../../assets/landing-page/cart-white.svg" alt="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
-                <div class="card">
-                    <div class="card-content">
-                        <div class="card-image">
-                            <div class="card-nota">
-                                <div class="nota">
-                                    <span>4.8</span>
-                                    <img src="../../../assets/landing-page/star.svg" alt="">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-description">
-                            <div class="card-h">
-                                <span class="card-title">Vanilla Latte</span>
-                                <span class="card-title">21k</span>
-                            </div>
-                            <div class="card-icon">
-                                <div class="filled-button-iconBG">
-                                    <img class="filled-button-icon"src="../../../assets/landing-page/cart-white.svg" alt="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                            <div class="button-position">
 
-                <div class="card">
-                    <div class="card-content">
-                        <div class="card-image">
-                            <div class="card-nota">
-                                <div class="nota">
-                                    <span>4.8</span>
-                                    <img src="../../../assets/landing-page/star.svg" alt="">
+                                <div class="card-button-area" *ngIf="!logged">
+                                    <div class="card-button left inactive"
+                                        id="cardbutton-{{i}}">
+                                        +
+                                    </div>
+                                    <span>{{item.quantity}}</span>
+                                    <div class="card-button rigth inactive"
+                                        id="cardbutton-{{i}}">
+                                        -
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="card-description">
-                            <div class="card-h">
-                                <span class="card-title">Vanilla Latte</span>
-                                <span class="card-title">21k</span>
-                            </div>
-                            <div class="card-icon">
-                                <div class="filled-button-iconBG">
-                                    <img class="filled-button-icon"src="../../../assets/landing-page/cart-white.svg" alt="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
-                <div class="card">
-                    <div class="card-content">
-                        <div class="card-image">
-                            <div class="card-nota">
-                                <div class="nota">
-                                    <span>4.8</span>
-                                    <img src="../../../assets/landing-page/star.svg" alt="">
+                                <div class="card-button-area" *ngIf="logged">
+                                    <div class="card-button left active" (click)="addRemoveToCart(item.id, 'add')"
+                                        id="cardbutton-{{i}}">
+                                        +
+                                    </div>
+                                    <span>{{item.quantity}}</span>
+                                    <div class="card-button rigth active" (click)="addRemoveToCart(item.id, 'rem')"
+                                        id="cardbutton-{{i}}">
+                                        -
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="card-description">
-                            <div class="card-h">
-                                <span class="card-title">Vanilla Latte</span>
-                                <span class="card-title">21k</span>
-                            </div>
-                            <div class="card-icon">
-                                <div class="filled-button-iconBG">
-                                    <img class="filled-button-icon"src="../../../assets/landing-page/cart-white.svg" alt="">
-                                </div>
-                            </div>
+
                         </div>
                     </div>
                 </div>
-                
             </div>
 
         </div>

@@ -4,22 +4,27 @@
         <div class="cart-content">
             <div class="header">
                 <img src="../../../assets/cart/ok.svg">
-                <span>{{itemQuantity}}</span>
+                <span>{{itemQuantityText}}</span>
             </div>
             <div class="divider" *ngIf="cart.length"></div>
             <div class="body">
                 <div class="item" *ngFor="let item of cart">
-                    <span>{{item.name}}</span>
+                    <span class="text-area">{{item.name}}</span>
                     <span>{{item.quantity}}</span>
-                    <span>R$ {{item.value}}</span>
+                    <span>R$ {{item.quantity * item.value}}</span>
                 </div>
             </div>
             <div class="subtotal" *ngIf="cart.length">Subtotal: R$ {{totalValue}}</div>
             <div class="divider" *ngIf="cart.length"></div>
+            
             <div class="button" *ngIf="cart.length">
-                <a class="filled-button" href="/cardapio">
+                <div class="link" (click)="clearCart()">
+                    Limpar
+                </div>
+
+                <button class="filled-button" href="/cardapio" (click)="open()">
                     Finalizar Compra
-                </a>
+                </button>
             </div>
         </div>
     </div>

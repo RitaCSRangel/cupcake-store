@@ -1,7 +1,7 @@
-<div class="container">
+<app-spinner *ngIf="loading"></app-spinner>
+<app-header [currentPage]="'perfil'"></app-header><div class="container">
     <div class="row">
         <div class="content">
-
             <div class="profile-panel">
                 <div class="elipse-image">
                     <div class="profile-image"></div>
@@ -13,13 +13,8 @@
 
                 <div class="nav">
                     <div class="nav-item">
-                        <img class="icon" src="../../../assets/profile/ph_coffee-bold.svg" alt="">
-                        <a href="#">Últimos pedidos</a>
-                    </div>
-
-                    <div class="nav-item">
-                        <img class="icon" src="../../../assets/landing-page/cart.svg" alt="">
-                        <a href="#">Meu Carrinho</a>
+                        <img class="profile-icon" src="../../../assets/profile/ph_coffee-bold.svg" alt="">
+                        <a href="/pedidos">Últimos pedidos</a>
                     </div>
                 </div>
             </div>
@@ -28,33 +23,52 @@
 
                 <div class="input-container">
                     <span>Nome:</span>
-                    <input type="text" placeholder="Nome">
+                    <input type="text" placeholder="Nome" [(ngModel)]="nome">
                 </div>
 
                 <div class="input-container">
                     <span>E-mail:</span>
-                    <input type="text" placeholder="E-mail">
+                    <input type="text" placeholder="E-mail" [(ngModel)]="email">
                 </div>
 
                 <div class="input-container">
                     <span>Telefone:</span>
-                    <input type="text" placeholder="Telefone">
+                    <input type="text" placeholder="Telefone" [(ngModel)]="telefone">
                 </div>
 
-                <div class="input-container">
-                    <span>Endereço:</span>
-                    <input type="text" placeholder="Endereço">
+                <div class="endereco">
+                    <div class="input-container rua">
+                        <span>Rua:</span>
+                        <input type="text" placeholder="Endereço" [(ngModel)]="rua">
+                    </div>
+
+                    <div class="input-container numero">
+                        <span>Número:</span>
+                        <input type="text" placeholder="Endereço" [(ngModel)]="numero">
+                    </div>
+                </div>
+
+                <div class="endereco">
+                    <div class="input-container rua">
+                        <span>Bairro:</span>
+                        <input type="text" placeholder="Endereço" [(ngModel)]="bairro">
+                    </div>
+
+                    <div class="input-container numero">
+                        <span>CEP:</span>
+                        <input type="text" placeholder="Endereço" [(ngModel)]="cep">
+                    </div>
                 </div>
 
                 <div class="input-container">
                     <span>Senha:</span>
-                    <input type="text" placeholder="Senha">
+                    <input type="text" placeholder="Senha" [(ngModel)]="senha">
                 </div>
 
-                <div class="button-area">
-                    <div class="button">
+                <div class="button-area" (click)="submitNewUser()">
+                    <button class="button">
                         <span>Salvar</span>
-                    </div>
+                    </button>
                 </div>
 
             </div>
