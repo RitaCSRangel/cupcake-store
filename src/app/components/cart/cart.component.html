@@ -1,0 +1,16 @@
+<div class="cart-container">
+    <div class="header">
+        <imgs src="">
+        <span>{{itemQuantity}}</span>
+    </div>
+    <div class="divider"></div>
+    <div class="body">
+        <div class="item" *ngFor="let item of cart">
+            <span class="item-text">{{item.name}}</span>
+            <span class="item-text">{{item.quantity}}</span>
+            <span class="item-text">R$ {{item.value}}</span>
+        </div>
+        <div class="subtotal">Subtotal: R$ {{totalValue}}</div>
+    </div>
+    <div class="divider"></div>
+</div>
