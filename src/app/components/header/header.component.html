@@ -13,6 +13,11 @@
                 <img src="../../../assets/landing-page/fluent_person-32-regular.svg" alt="">
             </div>
         </div>
-        <img src="../../../assets/landing-page/cart-orange.svg" alt="">
+        <div (click)="openCart()">
+            <img src="../../../assets/landing-page/cart-orange.svg" alt="">
+        </div>
     </div>
+</div>
+<div *ngIf="showCart">
+    <app-cart></app-cart>
 </div>

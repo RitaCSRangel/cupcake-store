@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { CartItem } from 'src/app/services/cart-item';
+import { checkLogin } from 'src/app/utils/utils';
 
 @Component({
   selector: 'app-landing-page',
@@ -13,38 +15,34 @@ export class LandingPageComponent implements OnInit {
   @Input() currentPage = '';
 
   // Page data
-  popularItems: any[] = [];
+  popularItems: CartItem[] = [];
 
   constructor() { }
 
   ngOnInit(): void {
     sessionStorage.setItem('user', 'Rita');
-    this.checkLogin();
+    this.loadLoginFeatures();
     this.loadPopularItems();
   }
 
-  checkLogin(){
+  loadLoginFeatures(){
 
-    try{
-      const loggedUser = sessionStorage.getItem('user');
-      if (loggedUser){
-        document.getElementById('acessar')?.classList.add('hidden');
-        this.logged = true;
-      }else{
-        document.getElementById('acessar')?.classList.remove('hidden');
-        this.logged = false;
-      }
-    }catch(e){
-      console.log(e);
+    this.logged = checkLogin();
+    if (this.logged){
+      document.getElementById('acessar')?.classList.add('hidden');
+      this.logged = true;
+    }else{
+      document.getElementById('acessar')?.classList.remove('hidden');
+      this.logged = false;
     }
   }
 
   loadPopularItems(){
-    var item = {
+    var item: CartItem = {
       name: 'Vanilla Latte',
       value: 20,
-      quantity: '10',
-      score: '5',
+      quantity: 10,
+      score: 5,
       image: '../../../assets/landing-page/product-image-example.png'
     }
 

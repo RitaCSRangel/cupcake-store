@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { checkLogin } from 'src/app/utils/utils';
 
 @Component({
   selector: 'app-header',
@@ -8,23 +9,27 @@ import { Component, Input, OnInit } from '@angular/core';
 
 export class HeaderComponent implements OnInit {
 
+  // Controlers
   logged = false;
+  showCart = false;
   @Input() currentPage = '';
 
   constructor() { }
 
   ngOnInit(): void {
     this.checkCurrentPage();
-    this.checkLogin();
+    this.loadLoginFeatures();
   }
 
-  checkLogin(){
-    if (this.logged === false){
+  loadLoginFeatures(){
+
+    this.logged = checkLogin();
+    if (this.logged === false) {
       let collection = document.getElementsByClassName('filled-button-iconBG');
       Array.from(collection).forEach(element => {
         element.classList.add('inactive');
       });
-    }else if(this.logged === true){
+    } else if (this.logged === true) {
       let collection = document.getElementsByClassName('filled-button-iconBG');
       Array.from(collection).forEach(element => {
         element.classList.add('active');
@@ -46,5 +51,9 @@ export class HeaderComponent implements OnInit {
       document.getElementById('cardapio')?.classList.remove('active');
       document.getElementById('acessar')?.classList.add('active');
     }
+  }
+
+  openCart(){
+    this.showCart = !this.showCart;
   }
 }

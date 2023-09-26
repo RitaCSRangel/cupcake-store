@@ -1,16 +1,26 @@
-<div class="cart-container">
-    <div class="header">
-        <imgs src="">
-        <span>{{itemQuantity}}</span>
-    </div>
-    <div class="divider"></div>
-    <div class="body">
-        <div class="item" *ngFor="let item of cart">
-            <span class="item-text">{{item.name}}</span>
-            <span class="item-text">{{item.quantity}}</span>
-            <span class="item-text">R$ {{item.value}}</span>
+<div class="cart">
+    <div class="icon"></div>
+    <div class="cart-container">
+        <div class="cart-content">
+            <div class="header">
+                <img src="../../../assets/cart/ok.svg">
+                <span>{{itemQuantity}}</span>
+            </div>
+            <div class="divider" *ngIf="cart.length"></div>
+            <div class="body">
+                <div class="item" *ngFor="let item of cart">
+                    <span>{{item.name}}</span>
+                    <span>{{item.quantity}}</span>
+                    <span>R$ {{item.value}}</span>
+                </div>
+            </div>
+            <div class="subtotal" *ngIf="cart.length">Subtotal: R$ {{totalValue}}</div>
+            <div class="divider" *ngIf="cart.length"></div>
+            <div class="button" *ngIf="cart.length">
+                <a class="filled-button" href="/cardapio">
+                    Finalizar Compra
+                </a>
+            </div>
         </div>
-        <div class="subtotal">Subtotal: R$ {{totalValue}}</div>
     </div>
-    <div class="divider"></div>
 </div>
