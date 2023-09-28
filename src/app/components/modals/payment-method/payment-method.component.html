@@ -1,16 +1,27 @@
 <div class="payment">
     <div class="pay-container">
         <div class="pay-content">
-            <div class="header">
-                <span>Finalizar compra</span>
+            <div class="pay-header">
+                <span class="pay-title">Finalizar compra</span>
+                <img class="pay-icon-cart" src="../../../../assets/landing-page/cart.svg">
             </div>
-            <div class="body">
-                <div class="item" *ngFor="let item of cart">
-                    <span class="text-area">{{item.name}}</span>
-                    <span>{{item.quantity}}</span>
-                    <span>R$ {{item.quantity * item.value}}</span>
-                    <div class="divider"></div>
+            <div class="pay-body">
+                <div class="pay-item" *ngFor="let item of cart">
+                    <div class="pay-item-text">
+                        <span class="pay-text-area">{{item.name}}</span>
+                        <span>{{item.quantity}}</span>
+                        <span>R$ {{item.quantity * item.value}}</span>
+                    </div>
+                    <div class="pay-divider"></div>
                 </div>
+            </div>
+            <div class="pay-header">
+                <span class="pay-title">Pagamento</span>
+            </div>
+            <div class="pay-divider"></div>
+            <div class="pay-buttons">
+                <button class="pay-button">PIX</button>
+                <button class="pay-button">CARTÃO DE CRÉDITO</button>
             </div>
         </div>
     </div>

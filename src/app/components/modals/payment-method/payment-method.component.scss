@@ -1,12 +1,21 @@
+.modal-content {
+    background-color: #ffffff00;
+}
+
+.payment {
+    margin-left: -20%;
+}
+
 .pay-container {
-    width: 25rem;
-    max-height: 25rem;
+    width: 35rem;
+    max-height: 40rem;
     flex-shrink: 0;
     border-radius: 1.875rem;
     background-color: #ffffff;
     padding: 2rem;
     align-items: center;
     border: 1px solid gainsboro;
+    box-shadow: 0px 4px 19px 0px gainsboro;
 }
 
 .pay-content {
@@ -15,7 +24,7 @@
     flex-direction: column;
 }
 
-.header {
+.pay-header {
     display: flex;
     gap: 1rem;
     color: var(--Secondary, #2F2105);
@@ -26,13 +35,13 @@
     line-height: normal;
 }
 
-.divider {
+.pay-divider {
     width: 100%;
-    height: 3px;
-    background-color: #F6EBDA;
+    height: 1px;
+    background-color: rgba(193, 193, 193, 0.76);
 }
 
-.body {
+.pay-body {
     display: flex;
     gap: 0.5rem;
     flex-direction: column;
@@ -41,7 +50,7 @@
     overflow-y: auto;
 }
 
-.item {
+.pay-item {
     display: flex;
     justify-content: space-between;
     color: #C1C1C1;
@@ -51,9 +60,15 @@
     font-weight: 600;
     line-height: normal;
     letter-spacing: 0.06rem;
+    flex-direction: column;
 }
 
-.subtotal {
+.pay-item-text {
+    display: flex;
+    justify-content: space-between;
+}
+
+.pay-subtotal {
     display: flex;
     color: var(--Secondary, #2F2105);
     font-family: Poppins;
@@ -62,4 +77,43 @@
     font-weight: 400;
     line-height: normal;
     justify-content: flex-end;
+}
+
+.pay-title {
+    color: #000;
+    font-family: Poppins;
+    font-size: 1.1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.pay-icon-cart {
+    width: 1.2rem;
+}
+
+.pay-text-area {
+    width: 160px;
+}
+
+button {
+    border: none;
+}
+
+.pay-buttons{
+    display: flex;
+    gap: 2rem;
+}
+
+.pay-button {
+    border-radius: 0.625rem;
+    background: #FF902A;
+    box-shadow: 0px 4px 19px 0px rgba(119, 147, 65, 0.30);
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    padding: 0.7rem 2rem;
 }

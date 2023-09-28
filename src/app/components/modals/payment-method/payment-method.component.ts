@@ -20,6 +20,7 @@ export class PaymentMethodComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.loadCart()
   }
 
   loadCart() {
