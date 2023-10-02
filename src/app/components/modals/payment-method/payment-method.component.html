@@ -14,14 +14,60 @@
                     </div>
                     <div class="pay-divider"></div>
                 </div>
+                <div class="subtotal" *ngIf="cart.length">Total: R$ {{totalValue}}</div>
             </div>
             <div class="pay-header">
                 <span class="pay-title">Pagamento</span>
             </div>
             <div class="pay-divider"></div>
+
             <div class="pay-buttons">
-                <button class="pay-button">PIX</button>
-                <button class="pay-button">CARTÃO DE CRÉDITO</button>
+                <button class="pay-button" [disabled]="isPix" (click)="payWithPix()">PIX</button>
+                <button class="pay-button" [disabled]="isCard" (click)="payWithCard()">CARTÃO DE CRÉDITO</button>
+            </div>
+
+            <div class="pix-payment" *ngIf="isPix">
+                <div class="qr-code"></div>
+                <span class="note">Este QR Code é apenas uma imagem estática, ele não possui qualquer funcionalidade. :)</span>
+            </div>
+
+            <div class="card-payment" *ngIf="isCard">
+                <div class="card-form">
+    
+                    <div class="two-inputs">
+                        <div class="input-container left">
+                            <span class="card-label">Número do Cartão</span>
+                            <input type="text" placeholder="0000 0000 0000 0000" [(ngModel)]="cardNumber">
+                        </div>
+    
+                        <div class="input-container rigth">
+                            <span class="card-label">CVV</span>
+                            <input type="text" placeholder="000" [(ngModel)]="cvv">
+                        </div>
+                    </div>
+    
+                    <div class="two-inputs">
+                        <div class="input-container left">
+                            <span class="card-label">Nome do Titular</span>
+                            <input type="text" placeholder="Nome" [(ngModel)]="name">
+                        </div>
+    
+                        <div class="input-container rigth">
+                            <span class="card-label">Data de Vencimento</span>
+                            <input type="text" placeholder="00/00/0000" [(ngModel)]="expireDate">
+                        </div>
+                    </div>
+    
+                    <div class="input-container">
+                        <span class="card-label">CPF</span>
+                        <input type="text" placeholder="000.000.000-00" [(ngModel)]="cpf">
+                    </div>
+    
+                    <button class="pay-button">
+                        <span>Comprar</span>
+                    </button>
+    
+                </div>
             </div>
         </div>
     </div>

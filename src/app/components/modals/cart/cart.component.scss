@@ -12,9 +12,18 @@ button:focus{
 
 .cart{
     position: absolute;
-    left: 55.4%;
+    left: 55%;
     top: 7%;
     z-index: 11;
+
+    @media (min-width: 1025px ) and (max-width: 1280px){
+        left: 70%;
+    }
+
+    @media (min-width: 1280px) {
+        left: 55.4%;
+        top: 7%;
+    }
 }
 
 .icon{
@@ -35,6 +44,7 @@ button:focus{
     background-color: #ffffff;
     padding: 2rem;
     align-items: center;
+    border: solid 1px #c1c1c154;
 }
 
 .cart-content {

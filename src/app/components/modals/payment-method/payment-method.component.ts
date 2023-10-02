@@ -14,6 +14,15 @@ export class PaymentMethodComponent implements OnInit {
 
   // HTML Data
   cart: Product[] = [];
+  isPix = false;
+  isCard = false;
+  totalValue = 0;
+
+  cardNumber = '';
+  cvv = '';
+  name = '';
+  expireDate = '';
+  cpf = '';
 
   constructor(
     public activeModal: NgbActiveModal
@@ -21,6 +30,7 @@ export class PaymentMethodComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadCart()
+    this.calculateTotalValue();
   }
 
   loadCart() {
@@ -31,6 +41,25 @@ export class PaymentMethodComponent implements OnInit {
         if (sessionCart[i].quantity > 0) {
           this.cart.push(sessionCart[i]);
         }
+      }
+    }
+  }
+
+  payWithPix() {
+    this.isPix = true;
+    this.isCard = false;
+  }
+
+  payWithCard() {
+    this.isCard = true;
+    this.isPix = false;
+  }
+
+
+  calculateTotalValue(){
+    if (this.cart.length > 0){
+      for(let i = 0; i<this.cart.length; i++){
+        this.totalValue = this.totalValue + (this.cart[i].value * this.cart[i].quantity);
       }
     }
   }
