@@ -1,8 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Product } from 'src/app/services/product-model';
+import { Product } from 'src/app/services/products/product-model';
 import { checkLogin, getCart, setCart, setUser } from 'src/app/utils/utils';
 import { HeaderComponent } from '../header/header.component';
 import { User } from 'src/app/services/user-model';
+import { ProductsService } from 'src/app/services/products/products.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-landing-page',
@@ -21,6 +23,7 @@ export class LandingPageComponent implements OnInit {
   products: Product[] = [];
 
   constructor(
+    private productsService: ProductsService
   ) { }
 
   ngOnInit(): void {
@@ -41,64 +44,75 @@ export class LandingPageComponent implements OnInit {
   }
 
   loadProducts() {
-    // Veridicar se já existe um carrinho
-    let sessionCart = getCart();
-    if (sessionCart != null) {
-      this.products = sessionCart;
-    }else{
-      var item1: Product = {
-        id: 1,
-        name: 'Vanilla Latte',
-        value: 20,
-        type: 'cafe',
-        quantity: 0,
-        stock: 20,
-        score: 5,
-        image: '../../../assets/landing-page/product-image-example.png'
+    // // Veridicar se já existe um carrinho
+    // let sessionCart = getCart();
+    // if (sessionCart != null) {
+    //   this.products = sessionCart;
+    // }else{
+    //   var item1: Product = {
+    //     id: 1,
+    //     name: 'Vanilla Latte',
+    //     value: 20,
+    //     type: 'cafe',
+    //     quantity: 0,
+    //     stock: 20,
+    //     score: 5,
+    //     image: '../../../assets/landing-page/product-image-example.png'
+    //   }
+
+    //   var item2: Product = {
+    //     id: 2,
+    //     name: 'Espresso',
+    //     value: 20,
+    //     type: 'cafe',
+    //     quantity: 0,
+    //     stock: 20,
+    //     score: 4.8,
+    //     image: '../../../assets/landing-page/product-image-example.png'
+    //   }
+
+    //   var item3: Product = {
+    //     id: 3,
+    //     name: 'Chocolate Cupcake',
+    //     value: 20,
+    //     type: 'cupcake',
+    //     quantity: 0,
+    //     stock: 20,
+    //     score: 3.3,
+    //     image: '../../../assets/landing-page/product-image-example.png'
+    //   }
+
+    //   var item4: Product = {
+    //     id: 4,
+    //     name: 'Vanilla Cupcake',
+    //     value: 20,
+    //     type: 'cupcake',
+    //     quantity: 0,
+    //     stock: 20,
+    //     score: 4,
+    //     image: '../../../assets/landing-page/product-image-example.png'
+    //   }
+
+    //   this.products.push(item1);
+    //   this.products.push(item2);
+    //   this.products.push(item3);
+    //   this.products.push(item4);
+    // }
+
+    this.productsService.getAllProducts().subscribe(
+      (response: Product[]) => {
+        this.products = response;
+
+        // Arrumar do maior pro menor score
+        this.products.sort((itemA, itemB) => (itemA.score < itemB.score) ? 1 : (itemA.score > itemB.score) ? -1 : 0);
+
+        // Armazenar na storage session
+        setCart(this.products);
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
       }
-
-      var item2: Product = {
-        id: 2,
-        name: 'Espresso',
-        value: 20,
-        type: 'cafe',
-        quantity: 0,
-        stock: 20,
-        score: 4.8,
-        image: '../../../assets/landing-page/product-image-example.png'
-      }
-
-      var item3: Product = {
-        id: 3,
-        name: 'Chocolate Cupcake',
-        value: 20,
-        type: 'cupcake',
-        quantity: 0,
-        stock: 20,
-        score: 3.3,
-        image: '../../../assets/landing-page/product-image-example.png'
-      }
-
-      var item4: Product = {
-        id: 4,
-        name: 'Vanilla Cupcake',
-        value: 20,
-        type: 'cupcake',
-        quantity: 0,
-        stock: 20,
-        score: 4,
-        image: '../../../assets/landing-page/product-image-example.png'
-      }
-
-      this.products.push(item1);
-      this.products.push(item2);
-      this.products.push(item3);
-      this.products.push(item4);
-    }
-
-    // Arrumar do maior pro menor score
-    this.products.sort((itemA, itemB) => (itemA.score < itemB.score) ? 1 : (itemA.score > itemB.score) ? -1 : 0);
-    setCart(this.products);
+    );
   }
 
   addRemoveToCart(id: number, action: string) {

@@ -1,6 +1,11 @@
 # CupcakeStore
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.3.
+Este projeto foi criado para fins acadêmicos e corresponde ao projeto integrador de disciplinas do curso de Engenharia de Software. Para atender aos requisitos da disciplina, um documento de design de 
+software contendo todo o planejamento e modelagem da aplicação foi criado de antemão para que esta aplicação pudesse ser implementada.
+Tecnologias:
+- Angular v16.2.0 para o Front End
+- Sping Boot com Java para o Back End (https://start.spring.io/)
+- MySQL para o database (https://dev.mysql.com/downloads/installer/)
 
 ## Development server
 

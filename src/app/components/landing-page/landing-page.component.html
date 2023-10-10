@@ -70,7 +70,7 @@
                 <div class="card" *ngFor="let item of products | slice : 0 : 3; let i = index">
                     <div class="card-content">
                         <div>
-                            <img class="card-image" src="{{item.image}}">
+                            <img class="card-image" src="{{item.image}}" alt="">
                             <div class="card-nota">
                                 <div class="nota">
                                     <span>{{item.score}}</span>
@@ -91,7 +91,9 @@
                                         id="cardbutton-{{i}}">
                                         +
                                     </div>
-                                    <span>{{item.quantity}}</span>
+                                    <div class="card-button-middle">
+                                        <span>{{item.quantity}}</span>
+                                    </div>
                                     <div class="card-button rigth inactive" (click)="showAlert(i.toString())"
                                         id="cardbutton-{{i}}">
                                         -
@@ -103,7 +105,9 @@
                                         id="cardbutton-{{i}}">
                                         +
                                     </div>
-                                    <span>{{item.quantity}}</span>
+                                    <div class="card-button-middle">
+                                        <span>{{item.quantity}}</span>
+                                    </div>
                                     <div class="card-button rigth active" (click)="addRemoveToCart(item.id, 'rem')"
                                         id="cardbutton-{{i}}">
                                         -

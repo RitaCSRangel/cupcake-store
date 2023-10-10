@@ -352,7 +352,6 @@ img{
 
 .card-button-area {
     display: flex;
-    background-color: #2F2105;
     border-radius: 6.25rem;
     justify-content: center;
     align-items: center;
@@ -391,6 +390,15 @@ img{
     &.active{
         background-color: #FF902B;
     }
+}
+
+.card-button-middle{
+    background-color: #2F2105;
+    width: 70%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .loginAlert{

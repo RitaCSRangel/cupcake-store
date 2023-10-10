@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { Product } from 'src/app/services/product-model';
+import { Product } from 'src/app/services/products/product-model';
 import { getCart } from 'src/app/utils/utils';
 
 @Component({

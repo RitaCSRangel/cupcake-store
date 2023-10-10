@@ -1,12 +1,12 @@
 <div class="cart">
     <div class="cart-container">
         <div class="cart-content">
-            <div class="header">
-                <img src="../../../assets/cart/ok.svg">
+            <div class="header-cart">
+                <img src="../../../assets/cart/ok.svg" alt="">
                 <span>{{itemQuantityText}}</span>
             </div>
             <div class="divider" *ngIf="cart.length"></div>
-            <div class="body">
+            <div class="body-cart">
                 <div class="item" *ngFor="let item of cart">
                     <span class="text-area">{{item.name}}</span>
                     <span>{{item.quantity}}</span>

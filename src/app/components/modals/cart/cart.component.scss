@@ -53,7 +53,7 @@ button:focus{
     flex-direction: column;
 }
 
-.header {
+.header-cart {
     display: flex;
     gap: 1rem;
     color: var(--Secondary, #2F2105);
@@ -70,7 +70,7 @@ button:focus{
     background-color: #F6EBDA;
 }
 
-.body {
+.body-cart {
     display: flex;
     gap: 0.5rem;
     flex-direction: column;

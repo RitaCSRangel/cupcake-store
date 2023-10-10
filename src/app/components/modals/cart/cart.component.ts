@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { Product } from 'src/app/services/product-model';
+import { Product } from 'src/app/services/products/product-model';
 import { getCart } from 'src/app/utils/utils';
 import { PaymentMethodComponent } from '../payment-method/payment-method.component';
 
