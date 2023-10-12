@@ -27,7 +27,7 @@
     filter: drop-shadow(0 6mm 2mm rgb(0, 0, 0, 0.2));
     height: 519px;
     padding: 0.5rem;
-    width: 539px;
+    min-width: 539px;
     height: auto;
 }
 
@@ -152,4 +152,15 @@ button{
         background-color: #FF902A;
     }
 
+}
+
+button{
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+
+.cadastro-body{
+    @extend .body;
+    flex-direction: row;
 }

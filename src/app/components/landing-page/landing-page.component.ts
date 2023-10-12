@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Product } from 'src/app/services/products/product-model';
 import { checkLogin, getCart, setCart, setUser } from 'src/app/utils/utils';
 import { HeaderComponent } from '../header/header.component';
-import { User } from 'src/app/services/user-model';
+import { User } from 'src/app/services/users/user-model';
 import { ProductsService } from 'src/app/services/products/products.service';
 import { HttpErrorResponse } from '@angular/common/http';
 
@@ -14,23 +14,34 @@ import { HttpErrorResponse } from '@angular/common/http';
 
 export class LandingPageComponent implements OnInit {
 
-  // Controlers
-  logged = false;
+  // -------- Atributos --------
+
+  // Recebíveis por vias externas
   @Input() currentPage = '';
+
+  // Controladores
+  logged = false;
   cartManipulationInProgress = false;
 
-  // Page data
+  // Armazenadores
   products: Product[] = [];
 
+  // -------- Método Construtor --------
   constructor(
-    private productsService: ProductsService
+    private productsService: ProductsService // Injection da classe ProductsService para poder chamar os métodos de API definidos nela
   ) { }
 
+  // -------- Métodos do ciclo de vida do componente --------
   ngOnInit(): void {
     this.loadProducts();
     this.loadLoginFeatures();
   }
 
+  // -------- Métodos da Classe --------
+
+  // Método loadLoginFeatures
+  // Este método é responsável por chamar a função definida nos utilitários (utils) de checkLogin para checar se um usuário está logado
+  // e, se estiver, ativa remove o botão de "acessar" da barra de navegação. Se não estiver, ativa o botão de acessar da barra de navegação.
   loadLoginFeatures() {
 
     this.logged = checkLogin();
@@ -43,62 +54,11 @@ export class LandingPageComponent implements OnInit {
     }
   }
 
+  // Método loadProducts
+  // Este método é responsável por chamar a função que corresponde ao método GET de obter todos os produtos definido no productsService e aguardar por sua
+  // resposta para armazenar o retorno no atributo products desta classe, organizar estes produtos na ordem de maior pro menor score e por fim guardar
+  // essa informação no session storage do navegador para que possa ser usada em outras telas sem a necessidade de repetir a chamada da API durante a sessão.
   loadProducts() {
-    // // Veridicar se já existe um carrinho
-    // let sessionCart = getCart();
-    // if (sessionCart != null) {
-    //   this.products = sessionCart;
-    // }else{
-    //   var item1: Product = {
-    //     id: 1,
-    //     name: 'Vanilla Latte',
-    //     value: 20,
-    //     type: 'cafe',
-    //     quantity: 0,
-    //     stock: 20,
-    //     score: 5,
-    //     image: '../../../assets/landing-page/product-image-example.png'
-    //   }
-
-    //   var item2: Product = {
-    //     id: 2,
-    //     name: 'Espresso',
-    //     value: 20,
-    //     type: 'cafe',
-    //     quantity: 0,
-    //     stock: 20,
-    //     score: 4.8,
-    //     image: '../../../assets/landing-page/product-image-example.png'
-    //   }
-
-    //   var item3: Product = {
-    //     id: 3,
-    //     name: 'Chocolate Cupcake',
-    //     value: 20,
-    //     type: 'cupcake',
-    //     quantity: 0,
-    //     stock: 20,
-    //     score: 3.3,
-    //     image: '../../../assets/landing-page/product-image-example.png'
-    //   }
-
-    //   var item4: Product = {
-    //     id: 4,
-    //     name: 'Vanilla Cupcake',
-    //     value: 20,
-    //     type: 'cupcake',
-    //     quantity: 0,
-    //     stock: 20,
-    //     score: 4,
-    //     image: '../../../assets/landing-page/product-image-example.png'
-    //   }
-
-    //   this.products.push(item1);
-    //   this.products.push(item2);
-    //   this.products.push(item3);
-    //   this.products.push(item4);
-    // }
-
     this.productsService.getAllProducts().subscribe(
       (response: Product[]) => {
         this.products = response;
@@ -115,6 +75,11 @@ export class LandingPageComponent implements OnInit {
     );
   }
 
+  // Método addRemoveToCart
+  // Este método é responsável por adicionar ou remover itens ao carrinho. Para fazer essa adição ou remoção, ao clicar no botão, o método
+  // o id correspondente do produto, que será o mesmo id da ordenação do array de produtos. Logo, o método buscará o item deste id e aumentará
+  // a propriedade de quantity. Em seguida, os valores do session storage serão atualizados para que outros locais da aplicação possam ver quanto
+  // de cada produto este usuário está adicionando à compra.
   addRemoveToCart(id: number, action: string) {
 
     //Procurar pelo item clicado nos produtos
@@ -139,6 +104,8 @@ export class LandingPageComponent implements OnInit {
     }
   }
 
+  // Método showAlert
+  // Este método mostra um alerta nos botões de adicionar ou remover quando o usuário não está logado na aplicação.
   showAlert(id: string) {
     if (this.logged === false) {
       if (document.getElementById(`cardalert-${id}`)?.classList.contains('invisible')) {

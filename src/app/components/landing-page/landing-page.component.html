@@ -70,7 +70,7 @@
                 <div class="card" *ngFor="let item of products | slice : 0 : 3; let i = index">
                     <div class="card-content">
                         <div>
-                            <img class="card-image" src="{{item.image}}" alt="">
+                            <img class="card-image" src="../../../assets/{{item.type}}s/{{item.image}}" alt="">
                             <div class="card-nota">
                                 <div class="nota">
                                     <span>{{item.score}}</span>

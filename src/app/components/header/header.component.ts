@@ -11,21 +11,33 @@ import { CartComponent } from '../modals/cart/cart.component';
 
 export class HeaderComponent implements OnInit {
 
-  // Controlers
-  logged = false;
-  showCart = false;
+  // -------- Atributos --------
+
+  // Recebíveis por vias externas
   @Input() currentPage = '';
 
+  // Controladores
+  logged = false;
+  showCart = false;
+
+  // -------- Método Construtor --------
   constructor(
-    private modalService: NgbModal
+    private modalService: NgbModal // Injection da classe NgbModal para poder chamar a modal de carrinho
   ) { }
 
+  // -------- Métodos do ciclo de vida do componente --------
   ngOnInit(): void {
     this.checkCurrentPage();
     this.loadLoginFeatures();
   }
 
-  loadLoginFeatures(){
+  // -------- Métodos da Classe --------
+
+  // Método loadLoginFeatures
+  // Este método é responsável por chamar a função definida nos utilitários (utils) de checkLogin para checar se um usuário está logado
+  // e, se estiver, ativa os botões que permitem adicionar ou remover os itens de destaque da landing page ao carrinho. Se não estiver
+  // logado então esses botões ficam inativos.
+  loadLoginFeatures() {
 
     this.logged = checkLogin();
     if (this.logged === false) {
@@ -41,6 +53,9 @@ export class HeaderComponent implements OnInit {
     }
   }
 
+  // Método checkCurrentPage
+  // Este método é responsável por verificar em qual página o usuário se encontra para destacar
+  // o item da barra de navegação de acordo.
   checkCurrentPage() {
     if (this.currentPage === 'landing-page') {
       document.getElementById('inicio')?.classList.add('active');
@@ -54,14 +69,16 @@ export class HeaderComponent implements OnInit {
       document.getElementById('inicio')?.classList.remove('active');
       document.getElementById('cardapio')?.classList.remove('active');
       document.getElementById('acessar')?.classList.add('active');
-    }else if (this.currentPage === 'perfil') {
+    } else if (this.currentPage === 'perfil') {
       document.getElementById('inicio')?.classList.remove('active');
       document.getElementById('cardapio')?.classList.remove('active');
       document.getElementById('acessar')?.classList.remove('active');
     }
   }
 
+  // Método open
+  // Este método permite abrir uma modal que, no caso, é o componente CartComponent
   open() {
-		const modalRef = this.modalService.open(CartComponent, { backdropClass: 'transparent-backdrop' });
-	}
+    const modalRef = this.modalService.open(CartComponent, { backdropClass: 'transparent-backdrop' });
+  }
 }

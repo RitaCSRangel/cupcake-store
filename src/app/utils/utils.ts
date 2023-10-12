@@ -1,4 +1,4 @@
-import { User } from "../services/user-model";
+import { User } from "../services/users/user-model";
 
 export function checkLogin() {
 

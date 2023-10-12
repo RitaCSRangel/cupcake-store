@@ -11,8 +11,8 @@ import { checkLogin, getCart, setCart } from 'src/app/utils/utils';
 export class ProductsMenuComponent implements OnInit {
 
   @Input() cart: Product[] = [];
-  cupcakeTab = false;
-  coffeeTab = true;
+  cupcakeTab = true;
+  coffeeTab = false;
 
   // Controlers
   logged = false;

@@ -1,3 +1,9 @@
+button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+
 .container {
     height: 100vh;
     background-image: url(../../../assets/order-menu/order-menu-bg.png);
@@ -33,14 +39,14 @@
     background-color: #FF902B;
 }
 
-.tabs{
+.tabs {
     width: 100%;
     display: flex;
     gap: 2rem;
     padding-left: 4rem;
 }
 
-.tabName{
+.tabName {
     display: flex;
     color: black;
     font-size: 1.5rem;
@@ -51,7 +57,7 @@
     font-family: Poppins;
     padding: 1rem;
 
-    &.active{
+    &.active {
         background-color: #FF902B;
         color: white;
         border-radius: 40px;
@@ -80,7 +86,7 @@
     padding: 0.5rem;
     justify-content: space-between;
 
-    @media (min-width: 1025px ) and (max-width: 1280px) {
+    @media (min-width: 1025px) and (max-width: 1280px) {
         height: 18rem;
         width: 18rem;
     }
@@ -99,7 +105,7 @@
     padding: 1rem;
 }
 
-img{
+img {
     object-fit: cover;
     object-position: center;
 }
@@ -150,7 +156,7 @@ img{
     padding: 0.5rem;
     flex-direction: column;
 
-    @media (min-width: 1025px ) and (max-width: 1280px) {
+    @media (min-width: 1025px) and (max-width: 1280px) {
         gap: 1rem;
     }
 
@@ -174,13 +180,14 @@ img{
     word-wrap: break-word;
     font-family: Poppins;
     font-size: 0.7rem;
+    gap: 0.5rem;
 
     @media (min-width: 1280px) {
         font-size: 1rem;
     }
 }
 
-.button-position{
+.button-position {
     display: flex;
     width: 100%;
     justify-content: end;
@@ -188,7 +195,6 @@ img{
 
 .card-button-area {
     display: flex;
-    background-color: #2F2105;
     border-radius: 6.25rem;
     justify-content: center;
     align-items: center;
@@ -202,7 +208,7 @@ img{
     font-family: Poppins;
 }
 
-.card-button{
+.card-button {
     display: flex;
     background-color: lightgray;
     justify-content: center;
@@ -210,21 +216,34 @@ img{
     width: 32px;
     height: 100%;
 
-    &.left{
+    &.left {
         border-top-left-radius: 6.25rem;
         border-bottom-left-radius: 6.25rem;
     }
 
-    &.rigth{
+    &.rigth {
         border-top-right-radius: 6.25rem;
         border-bottom-right-radius: 6.25rem;
     }
 
-    &.inactive{
+    &.inactive {
         background-color: lightgray;
     }
 
-    &.active{
+    &.active {
         background-color: #FF902B;
     }
+}
+
+.card-button-middle {
+    background-color: #2F2105;
+    width: 70%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-title {
+    min-width: 4rem;
 }

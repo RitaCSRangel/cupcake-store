@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from 'src/app/services/user-model';
+import { User } from 'src/app/services/users/user-model';
 import { getUser, setUser } from 'src/app/utils/utils';
 
 @Component({
@@ -37,10 +37,6 @@ export class ProfileComponent implements OnInit {
     this.nome = this.user.name;
     this.email = this.user.email;
     this.telefone = this.user.phone;
-    this.rua = this.user.address.rua;
-    this.numero = this.user.address.numero;
-    this.bairro = this.user.address.bairro;
-    this.cep = this.user.address.cep;
     this.senha = this.user.password;
   }
 
@@ -49,11 +45,10 @@ export class ProfileComponent implements OnInit {
     this.user.name = this.nome;
     this.user.email = this.email;
     this.user.phone = this.telefone;
-    this.user.address.rua = this.rua;
-    this.user.address.numero = this.numero;
-    this.user.address.bairro = this.bairro;
-    this.user.address.cep = this.cep;
     this.user.password = this.senha;
+    this.rua = this.user.rua;
+    this.bairro = this.user.bairro;
+    this.cep = this.user.cep;
     setUser(this.user)
     setTimeout(() => {
       this.loading = false;
