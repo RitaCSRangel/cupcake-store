@@ -3,11 +3,8 @@
     <div class="row">
         <div class="content">
             <div class="profile-panel">
-                <div class="elipse-image">
-                    <div class="profile-image"></div>
-                </div>
 
-                <span class="welcome">Bem vinda <span class="welcome alt">Amélia</span></span>
+                <span class="welcome">Bem vinda <span class="welcome alt">{{user.name}}</span></span>
 
                 <div class="divider"></div>
 
@@ -39,30 +36,30 @@
                 <div class="endereco">
                     <div class="input-container rua">
                         <span>Rua:</span>
-                        <input type="text" placeholder="Endereço" [(ngModel)]="rua">
+                        <input type="text" placeholder="Rua" [(ngModel)]="rua">
                     </div>
 
                     <div class="input-container numero">
                         <span>Número:</span>
-                        <input type="text" placeholder="Endereço" [(ngModel)]="numero">
+                        <input type="text" placeholder="Número" [(ngModel)]="numero">
                     </div>
                 </div>
 
                 <div class="endereco">
                     <div class="input-container rua">
                         <span>Bairro:</span>
-                        <input type="text" placeholder="Endereço" [(ngModel)]="bairro">
+                        <input type="text" placeholder="Bairro" [(ngModel)]="bairro">
                     </div>
 
                     <div class="input-container numero">
                         <span>CEP:</span>
-                        <input type="text" placeholder="Endereço" [(ngModel)]="cep">
+                        <input type="text" placeholder="CEP" [(ngModel)]="cep">
                     </div>
                 </div>
 
                 <div class="input-container">
                     <span>Senha:</span>
-                    <input type="text" placeholder="Senha" [(ngModel)]="senha">
+                    <input type="password" placeholder="Senha" [(ngModel)]="senha">
                 </div>
 
                 <div class="button-area" (click)="submitNewUser()">

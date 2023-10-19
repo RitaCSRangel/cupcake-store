@@ -10,4 +10,5 @@ export interface User {
     estado: string,
     cep: string,
     password: string,
+    admin: boolean
 }

@@ -5,8 +5,8 @@ button {
 }
 
 .container {
-    height: 100vh;
-    background-image: url(../../../assets/order-menu/order-menu-bg.png);
+    min-height: 100vh;
+    height: 100%;
     background-size: auto;
     background-repeat: no-repeat;
     background-color: #F6EBDA;
@@ -40,10 +40,8 @@ button {
 }
 
 .tabs {
-    width: 100%;
     display: flex;
     gap: 2rem;
-    padding-left: 4rem;
 }
 
 .tabName {
@@ -73,6 +71,7 @@ button {
     flex-wrap: wrap;
     flex-direction: row;
     padding: 2rem 5rem 5rem 5rem;
+    justify-content: center;
 }
 
 .card {
@@ -97,12 +96,15 @@ button {
     }
 }
 
+
 .card-content {
     width: 100%;
     height: 100%;
     background: white;
     border-radius: 12px;
     padding: 1rem;
+    display: flex;
+    flex-direction: column;
 }
 
 img {
@@ -111,7 +113,6 @@ img {
 }
 
 .card-image {
-    //background-image: url(../../../assets/landing-page/product-image-example.png);
     width: 100%;
     height: 10rem;
     background-size: cover;
@@ -151,10 +152,12 @@ img {
 }
 
 .card-description {
-    display: flex;
     width: 100%;
     padding: 0.5rem;
+    display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    height: inherit;
 
     @media (min-width: 1025px) and (max-width: 1280px) {
         gap: 1rem;
@@ -244,6 +247,145 @@ img {
     justify-content: center;
 }
 
+
 .card-title {
     min-width: 4rem;
+    display: -webkit-box;
+    max-width: 200px;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+
+.connection-error {
+    height: 21.5rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 4rem;
+}
+
+.banner-title {
+    color: #2F2105;
+    font-size: 2rem;
+    font-weight: 600;
+    word-wrap: break-word;
+    font-family: Poppins;
+
+    &.alt {
+        color: #FF902B;
+        font-weight: 600;
+        word-wrap: break-word;
+    }
+}
+
+.manage {
+    display: flex;
+    width: 100%;
+    padding: 0rem 4rem 0rem 4rem;
+    justify-content: space-between;
+}
+
+.manage-products {
+    display: flex;
+    gap: 1rem;
+}
+
+.manage-button {
+    @extend .tabName;
+    margin-bottom: 0rem;
+    background-color: #FF902B;
+    border-radius: 5rem;
+    font-size: 1rem;
+    font-family: Poppins;
+    color: #ffffff;
+}
+
+.operation-button {
+    @extend .tabName;
+    margin-bottom: 0rem;
+    background-color: #ffffff;
+    border-radius: 1rem;
+    font-size: 1rem;
+    font-family: Poppins;
+    color: #FF902B;
+    margin-top: 1rem;
+}
+
+.operation-area {
+    display: flex;
+    gap: 1rem;
+}
+
+.remove-button {
+    position: absolute;
+    left: 80%;
+    bottom: 95%;
+    background-color: #FF902B;
+    border-radius: 5rem;
+    font-family: Poppins;
+    color: #ffffff;
+    font-weight: 400;
+}
+
+
+.input-label {
+    display: flex;
+    color: #ffffff;
+    font-size: 16px;
+    font-family: Poppins;
+    font-weight: 400;
+    word-wrap: break-word;
+}
+
+.input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+input {
+    height: 57px;
+    padding: 0.2rem 1.5rem;
+    border-radius: 10px;
+    border: solid 1px #ADADAD;
+    border: none;
+    outline: none;
+}
+
+::placeholder {
+    color: #808080;
+    font-size: 14px;
+    font-family: Poppins;
+    font-weight: 300;
+    word-wrap: break-word;
+}
+
+select {
+    height: 57px;
+    padding: 0.2rem 1.5rem;
+    border-radius: 10px;
+    border: solid 1px #ADADAD;
+    border: none;
+    outline: none;
+}
+
+::placeholder {
+    color: #808080;
+    font-size: 14px;
+    font-family: Poppins;
+    font-weight: 300;
+    word-wrap: break-word;
+}
+
+.add-form {
+    background-color: #FF902B;
+    padding: 4rem;
+    width: 50rem;
+    border-radius: 2rem;
+    gap: 1rem;
+    display: flex;
+    flex-direction: column;
 }

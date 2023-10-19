@@ -4,88 +4,63 @@
     <div class="row">
         <div class="content">
 
-            <div class="profile-panel">
-                <div class="elipse-image">
-                    <div class="profile-image"></div>
-                </div>
-
-                <span class="welcome">Bem vinda <span class="welcome alt">Amélia</span></span>
-
-                <div class="divider"></div>
-
-            </div>
-
             <div class="orders-container">
                 <span class="order-title">Últimos pedidos</span>
                 <div class="divider expanded"></div>
                 <div class="orders">
-                    <div class="order">
+                    <div class="order" *ngFor="let order of orders; let i = index">
 
-                        <div class="mini-order" id="mini-0">
-                            <div class="spaced-data">
-                                <span class="order-text mini">Pedido 0025687</span>
-                                <span class="order-text mini">Processando</span>
-                                <span class="order-text mini">Total</span>
-                            </div>
-                            <div class="divider mini"></div>
-                        </div>
-
-                        <div class="mini-order" id="mini-1">
-                            <div class="spaced-data">
-                                <span class="order-text mini">Pedido 0025687</span>
-                                <span class="order-text mini">Processando</span>
-                                <span class="order-text mini">Total</span>
-                            </div>
-                            <div class="divider mini"></div>
-                        </div>
-
-                        <div class="mini-order" id="mini-2">
-                            <div class="spaced-data">
-                                <span class="order-text mini">Pedido 0025687</span>
-                                <span class="order-text mini">Processando</span>
-                                <span class="order-text mini">Total</span>
+                        <div class="mini-order" id="mini-{{i}}">
+                            <div class="spaced-data" (click)="openCloseInfos(i)">
+                                <span class="order-text mini">Pedido nº 000{{order.id}}</span>
+                                <span class="order-text mini">{{order.status | titlecase}}</span>
+                                <span class="order-text mini">Total: R$ {{order.value}}</span>
                             </div>
                             <div class="divider mini"></div>
                         </div>
     
-                        <div class="expanded-order" id="expanded-0">
-                            <div class="spaced-data">
-                                <span class="order-title expanded">Pedido 0025687</span>
-                                <span class="order-text expanded">Processando</span>
-                                <span class="order-text expanded">Total</span>
-                            </div>
-                            <div class="body-data">
+                        <div class="expanded-order hidden" id="expanded-{{i}}">
+                            <div class="body-data" *ngFor="let product of orders[i].products; let i = index">
                                 <div class="item">
                                     <div class="spaced-data">
-                                        <span class="order-text expanded">Espresso</span>
-                                        <span class="order-text expanded">1</span>
-                                        <span class="order-text expanded">12k</span>
-                                    </div>
-                                    <div class="divider expanded"></div>
-                                </div>
-
-                                <div class="item">
-                                    <div class="spaced-data">
-                                        <span class="order-text expanded">Espresso</span>
-                                        <span class="order-text expanded">1</span>
-                                        <span class="order-text expanded">12k</span>
-                                    </div>
-                                    <div class="divider expanded"></div>
-                                </div>
-
-                                <div class="item">
-                                    <div class="spaced-data">
-                                        <span class="order-text expanded">Espresso</span>
-                                        <span class="order-text expanded">1</span>
-                                        <span class="order-text expanded">12k</span>
+                                        <span class="order-text expanded label">{{product.name}}</span>
+                                        <span class="order-text expanded label center-text">{{product.quantity}}</span>
+                                        <span class="order-text expanded label end-text">R$ {{product.value}}</span>
                                     </div>
                                     <div class="divider expanded"></div>
                                 </div>
                             </div>
-                            <div class="pipeline">
-                                <img src="../../../assets/last-orders/pipeline1.png" alt>
+                            <div class="pipeline" *ngIf="user.admin === false">
+                                <div *ngIf="order.status === 'recebido'">
+                                    <img src="../../../assets/last-orders/pipeline1.png" alt>
+                                </div>
+                                <div *ngIf="order.status === 'embalado'">
+                                    <img src="../../../assets/last-orders/pipeline2.png" alt>
+                                </div>
+                                <div *ngIf="order.status === 'enviado'">
+                                    <img src="../../../assets/last-orders/pipeline3.png" alt>
+                                </div>
+                                <div *ngIf="order.status === 'entregue'">
+                                    <img src="../../../assets/last-orders/pipeline4.png" alt>
+                                </div>
+                            </div>
+                            <div class="pipeline" *ngIf="user.admin === true">
+                                <label class="input-label" for="pipeline">Status do pedido:</label>
+                                <select #pipelineSelect name="pipeline" id="pipeline" (change)="changeOrderStatus(pipelineSelect.value, order.value, order.userId, order.id)">
+                                    <option value="recebido" [selected]="order.status === 'recebido'">Recebido</option>
+                                    <option value="embalado" [selected]="order.status === 'embalado'">Embalado</option>
+                                    <option value="enviado" [selected]="order.status === 'enviado'">Enviado</option>
+                                    <option value="entregue" [selected]="order.status === 'entregue'">Entregue</option>
+                                </select>
+                            </div>
+
+                            <div class="pipeline" *ngIf="order.status === 'entregue'">
+                                <label class="input-label" for="pipeline">Dê a sua nota:</label>
+                                <input type="number" placeholder="Digite uma nota de 1 a 5"  min="0" max="5" [(ngModel)]="score"
+                                value="score">
                             </div>
                         </div>
+
                     </div>
                 </div>
             </div>

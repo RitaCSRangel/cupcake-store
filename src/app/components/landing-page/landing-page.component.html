@@ -66,62 +66,70 @@
                 <span>Popular <span class="popular-text alt">hoje</span></span>
             </div>
 
-            <div class="cards">
-                <div class="card" *ngFor="let item of products | slice : 0 : 3; let i = index">
-                    <div class="card-content">
-                        <div>
-                            <img class="card-image" src="../../../assets/{{item.type}}s/{{item.image}}" alt="">
-                            <div class="card-nota">
-                                <div class="nota">
-                                    <span>{{item.score}}</span>
-                                    <img src="../../../assets/landing-page/star.svg" alt="">
+            <div *ngIf="products.length">
+                <div class="cards">
+                    <div class="card" *ngFor="let item of products | slice : 0 : 3; let i = index">
+                        <div class="card-content">
+                            <div>
+                                <img class="card-image" src="../../../assets/{{item.type}}s/{{item.image}}" alt="">
+                                <div class="card-nota">
+                                    <div class="nota">
+                                        <span>{{item.score}}</span>
+                                        <img src="../../../assets/landing-page/star.svg" alt="">
+                                    </div>
                                 </div>
+                            </div>
+                            <div class="card-description">
+                                <div class="card-h">
+                                    <span class="card-title" title="{{item.name}}">{{item.name}}</span>
+                                    <span class="card-title">R$ {{item.value.toString()}}</span>
+                                </div>
+    
+                                <div class="button-position">
+    
+                                    <div class="card-button-area" *ngIf="!logged">
+                                        <div class="card-button left inactive" (click)="showAlert(i.toString())"
+                                            id="cardbutton-{{i}}">
+                                            +
+                                        </div>
+                                        <div class="card-button-middle">
+                                            <span>{{item.quantity}}</span>
+                                        </div>
+                                        <div class="card-button rigth inactive" (click)="showAlert(i.toString())"
+                                            id="cardbutton-{{i}}">
+                                            -
+                                        </div>
+                                    </div>
+    
+                                    <div class="card-button-area" *ngIf="logged">
+                                        <div class="card-button left active" (click)="addRemoveToCart(item.id, 'add')"
+                                            id="cardbutton-{{i}}">
+                                            +
+                                        </div>
+                                        <div class="card-button-middle">
+                                            <span>{{item.quantity}}</span>
+                                        </div>
+                                        <div class="card-button rigth active" (click)="addRemoveToCart(item.id, 'rem')"
+                                            id="cardbutton-{{i}}">
+                                            -
+                                        </div>
+                                    </div>
+                                </div>
+    
                             </div>
                         </div>
-                        <div class="card-description">
-                            <div class="card-h">
-                                <span class="card-title">{{item.name}}</span>
-                                <span class="card-title">R$ {{item.value.toString()}}</span>
-                            </div>
-
-                            <div class="button-position">
-
-                                <div class="card-button-area" *ngIf="!logged">
-                                    <div class="card-button left inactive" (click)="showAlert(i.toString())"
-                                        id="cardbutton-{{i}}">
-                                        +
-                                    </div>
-                                    <div class="card-button-middle">
-                                        <span>{{item.quantity}}</span>
-                                    </div>
-                                    <div class="card-button rigth inactive" (click)="showAlert(i.toString())"
-                                        id="cardbutton-{{i}}">
-                                        -
-                                    </div>
-                                </div>
-
-                                <div class="card-button-area" *ngIf="logged">
-                                    <div class="card-button left active" (click)="addRemoveToCart(item.id, 'add')"
-                                        id="cardbutton-{{i}}">
-                                        +
-                                    </div>
-                                    <div class="card-button-middle">
-                                        <span>{{item.quantity}}</span>
-                                    </div>
-                                    <div class="card-button rigth active" (click)="addRemoveToCart(item.id, 'rem')"
-                                        id="cardbutton-{{i}}">
-                                        -
-                                    </div>
-                                </div>
-                            </div>
-
+    
+                        <div class="loginAlert invisible" id="cardalert-{{i}}">
+                            <span class="alert-text">Acesse sua conta para pedir.</span>
+                            <a class="alert-text attention" href="/acesso">Clique aqui!</a>
                         </div>
                     </div>
+                </div>
+            </div>
 
-                    <div class="loginAlert invisible" id="cardalert-{{i}}">
-                        <span class="alert-text">Acesse sua conta para pedir.</span>
-                        <a class="alert-text attention" href="/acesso">Clique aqui!</a>
-                    </div>
+            <div *ngIf="!products.length">
+                <div class="connection-error">
+                    <span class="banner-title">Eita! Parece que os cafés <br>não estão para cupcakes hoje.</span>
                 </div>
             </div>
 

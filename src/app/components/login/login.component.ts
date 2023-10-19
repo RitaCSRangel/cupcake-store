@@ -65,7 +65,8 @@ export class LoginComponent implements OnInit {
       cidade: "",
       estado: "",
       cep: "",
-      password: this.passwordLogin
+      password: this.passwordLogin,
+      admin: this.emailLogin === 'admin' && this.passwordLogin === 'admin' ? true : false
     }
     this.usersService.loginUser(user).subscribe(
       (response: any) => {
@@ -92,7 +93,8 @@ export class LoginComponent implements OnInit {
       cidade: this.cidadeRegister,
       estado: this.estadoRegister,
       cep: this.cepRegister,
-      password: this.passwordRegister
+      password: this.passwordRegister,
+      admin: false
     }
     this.usersService.addUser(user).subscribe(
       (response: any) => {
@@ -110,6 +112,7 @@ export class LoginComponent implements OnInit {
   // e se encontrar uma correspondência faz a atualização dos dados para por fim permitir o login.
   resetPassword() {
     const user: User = {
+      id: 0,
       name: "",
       email: this.emailRecovery,
       phone: "",
@@ -119,12 +122,14 @@ export class LoginComponent implements OnInit {
       cidade: "",
       estado: "",
       cep: "",
-      password: ""
+      password: "",
+      admin: false
     }
     this.usersService.recoverPasswordUser(user).subscribe(
       (responseSearch: any) => {
 
         const newUser: User = {
+          id: responseSearch.id,
           name: responseSearch.name,
           email: this.emailLogin,
           phone: responseSearch.phone,
@@ -134,12 +139,12 @@ export class LoginComponent implements OnInit {
           cidade: responseSearch.cidade,
           estado: responseSearch.estado,
           cep: responseSearch.cep,
-          password: this.passwordRecovery
+          password: this.passwordRecovery,
+          admin: false
         }
 
         this.usersService.updateUser(newUser).subscribe((responseUpdate: any) => {
-          setUser(responseUpdate);
-          this.router.navigate(['']);
+          alert("Senha alterada com sucesso!");
         },
           (error: HttpErrorResponse) => {
             alert("Não foi possível alterar a senha do usuário.");

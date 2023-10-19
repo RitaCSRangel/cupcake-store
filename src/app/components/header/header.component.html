@@ -16,5 +16,8 @@
         <div (click)="open()">
             <img src="../../../assets/landing-page/cart-orange.svg" alt="">
         </div>
+        <div *ngIf="logged">
+            <span class="exit" (click)="loggout()">Sair</span>
+        </div>
     </div>
 </div>

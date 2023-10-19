@@ -1,8 +1,8 @@
-a{
-text-decoration: none;
+a {
+    text-decoration: none;
 }
 
-button{
+button {
     border: none;
 }
 
@@ -14,7 +14,7 @@ button{
     background-color: white;
     background-size: cover;
 
-    @media (min-width: 1025px ) and (max-width: 1280px){
+    @media (min-width: 1025px) and (max-width: 1280px) {
         background-image: url(../../../assets/landing-page/website-bg-small.png);
     }
 
@@ -29,7 +29,7 @@ button{
     display: flex;
     margin-top: 10%;
 
-    @media (min-width: 1025px ) and (max-width: 1280px) {
+    @media (min-width: 1025px) and (max-width: 1280px) {
         margin-bottom: 4rem;
     }
 
@@ -98,14 +98,14 @@ button{
     animation: scale-up-center 0.8s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 }
 
-.bubbles{
+.bubbles {
     position: absolute;
     width: 450px;
     height: 450px;
 }
 
 
-.bubble-card{
+.bubble-card {
     position: absolute;
     width: 180px;
     height: 50px;
@@ -117,26 +117,26 @@ button{
     animation: scale-up-center 0.8s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 
 
-    &.position1{
+    &.position1 {
         left: 60%;
         top: 10%;
     }
 
-    
-    &.position2{
+
+    &.position2 {
         left: 5%;
         top: 80%;
     }
 
-    
-    &.position3{
+
+    &.position3 {
         left: 2%;
         top: 30%;
     }
 }
-  
 
-.bubble{
+
+.bubble {
     padding: 10px;
     background: white;
     border-radius: 50px;
@@ -170,7 +170,7 @@ button{
     padding: 20px;
 }
 
-.hero-image{
+.hero-image {
     background-image: url(../../../assets/landing-page/coffe-cupcake.jpg);
     background-size: cover;
     background-position: left;
@@ -187,8 +187,8 @@ button{
     margin-top: -1.6rem;
     margin-bottom: 4rem;
 
-    
-    @media (min-width: 1025px ) and (max-width: 1280px) {
+
+    @media (min-width: 1025px) and (max-width: 1280px) {
         margin-top: -1rem;
         margin-bottom: 6rem;
     }
@@ -216,7 +216,7 @@ button{
         color: #FF902B;
     }
 
-    @media (min-width: 1025px ) and (max-width: 1280px) {
+    @media (min-width: 1025px) and (max-width: 1280px) {
         margin-bottom: 2rem;
     }
 
@@ -244,7 +244,7 @@ button{
     padding: 0.5rem;
     justify-content: space-between;
 
-    @media (min-width: 1025px ) and (max-width: 1280px) {
+    @media (min-width: 1025px) and (max-width: 1280px) {
         height: 18rem;
         width: 18rem;
     }
@@ -261,9 +261,11 @@ button{
     background: white;
     border-radius: 12px;
     padding: 1rem;
+    display: flex;
+    flex-direction: column;
 }
 
-img{
+img {
     object-fit: cover;
     object-position: center;
 }
@@ -309,12 +311,14 @@ img{
 }
 
 .card-description {
-    display: flex;
     width: 100%;
     padding: 0.5rem;
+    display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    height: inherit;
 
-    @media (min-width: 1025px ) and (max-width: 1280px) {
+    @media (min-width: 1025px) and (max-width: 1280px) {
         gap: 1rem;
     }
 
@@ -345,7 +349,7 @@ img{
     }
 }
 
-.button-position{
+.button-position {
     display: flex;
     width: 100%;
     justify-content: end;
@@ -366,7 +370,7 @@ img{
     font-family: Poppins;
 }
 
-.card-button{
+.card-button {
     display: flex;
     background-color: lightgray;
     justify-content: center;
@@ -374,26 +378,26 @@ img{
     width: 32px;
     height: 100%;
 
-    &.left{
+    &.left {
         border-top-left-radius: 6.25rem;
         border-bottom-left-radius: 6.25rem;
     }
 
-    &.rigth{
+    &.rigth {
         border-top-right-radius: 6.25rem;
         border-bottom-right-radius: 6.25rem;
     }
 
-    &.inactive{
+    &.inactive {
         background-color: lightgray;
     }
 
-    &.active{
+    &.active {
         background-color: #FF902B;
     }
 }
 
-.card-button-middle{
+.card-button-middle {
     background-color: #2F2105;
     width: 70%;
     height: 100%;
@@ -402,7 +406,7 @@ img{
     justify-content: center;
 }
 
-.loginAlert{
+.loginAlert {
     background-color: beige;
     padding: 2rem;
     border-radius: 10px;
@@ -412,23 +416,23 @@ img{
     top: 8rem;
     left: 1.5rem;
 
-    .visible{
+    .visible {
         visibility: visible;
     }
 
-    .invisible{
+    .invisible {
         visibility: hidden;
     }
 }
 
-.alert-text{
+.alert-text {
     color: #7E7D7A;
     font-size: 1rem;
     font-weight: 400;
     word-wrap: break-word;
 
-    &.attention{
-        color:#FF902B;
+    &.attention {
+        color: #FF902B;
     }
 }
 
@@ -446,7 +450,7 @@ img{
     padding: 0rem 2rem 0rem 2rem;
     margin-bottom: 7.5rem;
 
-    @media (min-width: 1025px ) and (max-width: 1280px) {
+    @media (min-width: 1025px) and (max-width: 1280px) {
         margin-bottom: 10.5rem;
         padding: 0rem 2rem 0rem 2rem;
     }
@@ -484,7 +488,7 @@ img{
     align-items: center;
     width: 263px;
 
-    @media (min-width: 1025px ) and (max-width: 1280px) {
+    @media (min-width: 1025px) and (max-width: 1280px) {
         width: auto;
     }
 
@@ -506,7 +510,7 @@ img{
     word-wrap: break-word;
     font-family: Poppins;
 
-    @media (min-width: 1025px ) and (max-width: 1280px) {
+    @media (min-width: 1025px) and (max-width: 1280px) {
         font-size: 18px;
     }
 
@@ -523,7 +527,7 @@ img{
     word-wrap: break-word;
     font-family: Poppins;
 
-    @media (min-width: 1025px ) and (max-width: 1280px) {
+    @media (min-width: 1025px) and (max-width: 1280px) {
         font-size: 18px;
     }
 
@@ -555,7 +559,7 @@ img{
     width: 18rem;
     height: 18rem;
 
-    @media (min-width: 1025px ) and (max-width: 1280px) {
+    @media (min-width: 1025px) and (max-width: 1280px) {
         width: 20rem;
         height: 22rem;
     }
@@ -581,7 +585,7 @@ img{
     flex-direction: column;
     max-width: 30rem;
 
-    @media (min-width: 1025px ) and (max-width: 1280px) {
+    @media (min-width: 1025px) and (max-width: 1280px) {
         padding-top: 2rem;
     }
 
@@ -608,7 +612,7 @@ img{
         color: #FF902B;
     }
 
-    @media (min-width: 1025px ) and (max-width: 1280px) {
+    @media (min-width: 1025px) and (max-width: 1280px) {
         font-size: 32px;
     }
 
@@ -624,26 +628,42 @@ img{
     word-wrap: break-word;
 }
 
+.card-title {
+    min-width: 4rem;
+    display: -webkit-box;
+    max-width: 200px;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.connection-error {
+    height: 21.5rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 4rem;
+}
+
 @keyframes scale-up-center {
     0% {
-      -webkit-transform: scale(0);
-              transform: scale(0);
+        -webkit-transform: scale(0);
+        transform: scale(0);
     }
+
     100% {
-      -webkit-transform: scale(1);
-              transform: scale(1);
+        -webkit-transform: scale(1);
+        transform: scale(1);
     }
 }
 
-  @keyframes showAlertAnimation {
+@keyframes showAlertAnimation {
     from {
-      opacity: 0;
+        opacity: 0;
     }
-    to {
-      opacity: 1;
-    }
-  }
 
-  .card-title{
-    min-width: 4rem;
-  }
+    to {
+        opacity: 1;
+    }
+}

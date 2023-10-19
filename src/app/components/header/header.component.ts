@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { checkLogin } from 'src/app/utils/utils';
 import { CartComponent } from '../modals/cart/cart.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -22,7 +23,8 @@ export class HeaderComponent implements OnInit {
 
   // -------- Método Construtor --------
   constructor(
-    private modalService: NgbModal // Injection da classe NgbModal para poder chamar a modal de carrinho
+    private modalService: NgbModal, // Injection da classe NgbModal para poder chamar a modal de carrinho
+    private router: Router
   ) { }
 
   // -------- Métodos do ciclo de vida do componente --------
@@ -80,5 +82,16 @@ export class HeaderComponent implements OnInit {
   // Este método permite abrir uma modal que, no caso, é o componente CartComponent
   open() {
     const modalRef = this.modalService.open(CartComponent, { backdropClass: 'transparent-backdrop' });
+  }
+
+  // Método loggout
+  // Este método é responsável por deslogar o usuário e redirecioná-lo para a landing page ou atualizar a landing page
+  loggout(){
+    sessionStorage.clear();
+    if (this.router.url === '/'){
+      window.location.reload();
+    }else{
+      this.router.navigate(['']);
+    }
   }
 }

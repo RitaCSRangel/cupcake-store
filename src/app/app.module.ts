@@ -15,6 +15,7 @@ import { CoffeeProductsPipe } from './pipes/products-filter-coffee';
 import { FormsModule } from '@angular/forms';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { PaymentMethodComponent } from './components/modals/payment-method/payment-method.component';
+import { QrCodeModule } from 'ng-qrcode';
 
 @NgModule({
   declarations: [
@@ -29,13 +30,14 @@ import { PaymentMethodComponent } from './components/modals/payment-method/payme
     CupcakeProductsPipe,
     CoffeeProductsPipe,
     SpinnerComponent,
-    PaymentMethodComponent
+    PaymentMethodComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    QrCodeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
