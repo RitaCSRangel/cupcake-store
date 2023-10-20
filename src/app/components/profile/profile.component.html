@@ -20,50 +20,50 @@
 
                 <div class="input-container">
                     <span>Nome:</span>
-                    <input type="text" placeholder="Nome" [(ngModel)]="nome">
+                    <input type="text" placeholder="Nome" [(ngModel)]="nome" disabled="admin">
                 </div>
 
                 <div class="input-container">
                     <span>E-mail:</span>
-                    <input type="text" placeholder="E-mail" [(ngModel)]="email">
+                    <input type="text" placeholder="E-mail" [(ngModel)]="email" disabled="admin">
                 </div>
 
                 <div class="input-container">
                     <span>Telefone:</span>
-                    <input type="text" placeholder="Telefone" [(ngModel)]="telefone">
+                    <input type="text" placeholder="Telefone" [(ngModel)]="telefone" disabled="admin">
                 </div>
 
                 <div class="endereco">
                     <div class="input-container rua">
                         <span>Rua:</span>
-                        <input type="text" placeholder="Rua" [(ngModel)]="rua">
+                        <input type="text" placeholder="Rua" [(ngModel)]="rua" disabled="admin">
                     </div>
 
                     <div class="input-container numero">
                         <span>Número:</span>
-                        <input type="text" placeholder="Número" [(ngModel)]="numero">
+                        <input type="text" placeholder="Número" [(ngModel)]="numero" disabled="admin">
                     </div>
                 </div>
 
                 <div class="endereco">
                     <div class="input-container rua">
                         <span>Bairro:</span>
-                        <input type="text" placeholder="Bairro" [(ngModel)]="bairro">
+                        <input type="text" placeholder="Bairro" [(ngModel)]="bairro" disabled="admin">
                     </div>
 
                     <div class="input-container numero">
                         <span>CEP:</span>
-                        <input type="text" placeholder="CEP" [(ngModel)]="cep">
+                        <input type="text" placeholder="CEP" [(ngModel)]="cep" disabled="admin">
                     </div>
                 </div>
 
                 <div class="input-container">
                     <span>Senha:</span>
-                    <input type="password" placeholder="Senha" [(ngModel)]="senha">
+                    <input type="password" placeholder="Senha" [(ngModel)]="senha" disabled="admin">
                 </div>
 
                 <div class="button-area" (click)="submitNewUser()">
-                    <button class="button">
+                    <button class="button" disabled="admin">
                         <span>Salvar</span>
                     </button>
                 </div>

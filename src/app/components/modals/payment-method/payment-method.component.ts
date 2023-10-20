@@ -104,21 +104,23 @@ export class PaymentMethodComponent implements OnInit {
 
     this.ordersService.addOrder(order).subscribe(
       (response: Order) => {
+
         this.cart.forEach((item) => {
-          const orderProduct = {
+          const orderProduct: OrderProduct = {
             orderId: response.id != null ? response.id : 0,
-            name: item.name,
             quantity: item.quantity,
-            value: item.value
+            productId: item.id != null ? item.id : 0
           }
           this.ordersService.addOrderProduct(orderProduct).subscribe(
             (response: OrderProduct) => {
+              console.log(orderProduct)
             },
             (error: HttpErrorResponse) => {
               alert(error.message);
             }
           );
         })
+
         let sessionCart = getCart();
         for (let i = 0; i < sessionCart.length; i++) {
           sessionCart[i].quantity = 0;
@@ -126,6 +128,7 @@ export class PaymentMethodComponent implements OnInit {
         setCart(sessionCart)
         this.activeModal.close();
         window.location.reload();
+
       },
       (error: HttpErrorResponse) => {
         alert(error.message);

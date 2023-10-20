@@ -190,7 +190,6 @@ input {
 .orders {
     display: flex;
     flex-direction: column;
-    gap: 4rem;
 }
 
 .order {
@@ -268,6 +267,7 @@ input {
     align-items: center;
     width: 100%;
     flex-direction: column;
+    margin-bottom: 4rem;
 }
 
 
@@ -287,4 +287,65 @@ select {
     font-family: Poppins;
     font-weight: 300;
     word-wrap: break-word;
+}
+
+.rating{
+    display: flex;
+    gap: 0.2rem;
+}
+
+.star{
+    width: 1.5rem;
+    cursor: pointer;
+    &.hidden{
+        display: none;
+    }
+
+    &.visible{
+        display: flex;
+    }
+}
+
+.button {
+    padding: 1rem 3rem;
+    border-radius: 12px;
+    color: white;
+    font-size: 16px;
+    font-family: Poppins;
+    font-weight: 500;
+    word-wrap: break-word;
+
+    &.orange{
+        background-color: #FF902A;
+    }
+
+}
+
+button{
+    outline: none;
+    border: none;
+}
+
+.button-area{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: -4rem;
+    margin-bottom: 4rem;
+}
+
+.connection-error {
+    height: 21.5rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 4rem;
+}
+
+.banner-title {
+    color: #2F2105;
+    font-size: 2rem;
+    font-weight: 600;
+    word-wrap: break-word;
+    font-family: Poppins;
 }

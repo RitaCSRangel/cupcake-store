@@ -1,3 +1,5 @@
+import { Product } from "../products/product-model"
+
 export interface Order {
     id?: number,
     userId: number,
@@ -8,15 +10,13 @@ export interface Order {
 export interface OrderProduct {
     id?: number,
     orderId: number,
-    name: string,
     quantity: number,
-    value: number
+    productId: number
 }
 
 export interface OrderAndProducts {
     id?: number,
-    userId: number,
-    value: number,
-    status: string,
-    products: OrderProduct[]
+    order: Order[],
+    orderProducts: OrderProduct[],
+    products: Product[]
 }
