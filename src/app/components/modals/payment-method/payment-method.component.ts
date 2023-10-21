@@ -97,6 +97,7 @@ export class PaymentMethodComponent implements OnInit {
   // API de criar ordem do produto para cada produto adicionado pelo usuário.
   createNewOrder() {
     const order = {
+      id: 0,
       userId: this.user.id != null ? this.user.id : 0,
       value: this.totalValue,
       status: 'recebido'
@@ -107,13 +108,16 @@ export class PaymentMethodComponent implements OnInit {
 
         this.cart.forEach((item) => {
           const orderProduct: OrderProduct = {
+            id: 0,
             orderId: response.id != null ? response.id : 0,
             quantity: item.quantity,
-            productId: item.id != null ? item.id : 0
+            productId: item.id != null ? item.id : 0,
+            name: item.name,
+            score: 0
           }
           this.ordersService.addOrderProduct(orderProduct).subscribe(
             (response: OrderProduct) => {
-              console.log(orderProduct)
+              alert('Pedido realizado com sucesso!')
             },
             (error: HttpErrorResponse) => {
               alert(error.message);

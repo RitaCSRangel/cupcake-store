@@ -18,6 +18,9 @@ export class LastOrdersComponent implements OnInit {
 
   // -------- Atributos --------
 
+  // Flags
+  showContent = false;
+
   // Armazenadores
   user!: User;
   ordersAndProducts: OrderAndProducts[] = [];
@@ -37,11 +40,12 @@ export class LastOrdersComponent implements OnInit {
     this.menuProducts = getCart();
 
     if (this.user.admin === false) {
-      console.log('era false')
       this.loadCommonUserOrders();
+      console.log(this.ordersAndProducts)
+      this.showContent = true
     } else {
-      console.log('era tru')
       this.loadAdminUserOrders();
+      console.log(this.ordersAndProducts)
     }
   }
 
@@ -58,60 +62,45 @@ export class LastOrdersComponent implements OnInit {
   // em seguida buscar por todos os produtos daquele pedido e, por fim, montar um array com as informações de
   // pedidos e seus respectivos produtos.
   loadCommonUserOrders() {
-    let orderAndProduct: any = {
-      id: 0,
-      order: [],
-      orderProducts: [],
-      products: []
-    }
+    this.ordersService.getAllOrdersFromUser(this.user.id).subscribe(
+      (responseOrders: Order[]) => {
+        // Encontrou as ordens
+        // Para cada ordem
+        responseOrders.forEach((order) => {
 
-    if (this.user.id != null) {
-      this.ordersService.getAllOrdersFromUser(this.user.id).subscribe(
-        (responseOrders: Order[]) => {
+          // Procura pelos produtos dessa ordem
+          this.ordersService.getAllOrderProductsFromOrder(order.id).subscribe(
+            (responseOrderProducts: OrderProduct[]) => {
+              
+              let element: OrderAndProducts = {
+                id: order.id,
+                order: order,
+                orderProducts: responseOrderProducts,
+                products: []
+              }
 
-          // Encontrou as ordens
-          // Para cada ordem
-          responseOrders.forEach((order) => {
-
-            orderAndProduct.id = order.id;
-            orderAndProduct.order.push(order);
-
-            if (order.id != null) {
-
-              // Procura pelos produtos dessa ordem
-              this.ordersService.getAllOrderProductsFromOrder(order.id).subscribe(
-                (responseOrderProducts: OrderProduct[]) => {
-
-                  orderAndProduct.orderProducts = responseOrderProducts;
-
-                  // Encontrou os produtos da ordem
-                  // Adiciona os produtos na lista de produtos
-                  responseOrderProducts.forEach((product) => {
-                    const found = this.menuProducts.find((menuProduct) => menuProduct.id === product.productId)
-                    if (found != null) {
-                      orderAndProduct.products.push(found)
-                    }
-                  })
-                },
-                (error: HttpErrorResponse) => {
-                  alert(error.message);
+              // Encontrou os produtos da ordem
+              // Adiciona os produtos na lista de produtos
+              responseOrderProducts.forEach((product) => {
+                const found = this.menuProducts.find((menuProduct) => menuProduct.id === product.productId)
+                if (found != null) {
+                  element.products.push(found)
                 }
+              })
 
-              );
+              this.ordersAndProducts.push(element);
+            },
+            (error: HttpErrorResponse) => {
+              alert(error.message);
             }
-            this.ordersAndProducts.push(orderAndProduct);
-            console.log(JSON.stringify(this.ordersAndProducts))
-          })
 
-        },
-        (error: HttpErrorResponse) => {
-          alert(error.message);
-        }
-      );
-
-    } else {
-      alert('Não foi possível obter os pedidos desse usuário.');
-    }
+          );
+        })
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    );
 
   }
 
@@ -121,12 +110,6 @@ export class LastOrdersComponent implements OnInit {
   // pedidos e seus respectivos produtos.
   loadAdminUserOrders() {
 
-    let orderAndProduct: any = {
-      id: 0,
-      order: [],
-      orderProducts: [],
-      products: []
-    }
 
     this.ordersService.getAllOrders().subscribe(
       (responseOrders: Order[]) => {
@@ -135,36 +118,34 @@ export class LastOrdersComponent implements OnInit {
         // Para cada ordem
         responseOrders.forEach((order) => {
 
-          orderAndProduct.id = order.id;
-          orderAndProduct.order.push(order);
-
-          if (order.id != null) {
-
-            // Procura pelos produtos dessa ordem
-            this.ordersService.getAllOrderProductsFromOrder(order.id).subscribe(
-              (responseOrderProducts: OrderProduct[]) => {
-
-                orderAndProduct.orderProducts = responseOrderProducts;
-
-                // Encontrou os produtos da ordem
-                // Adiciona os produtos na lista de produtos
-                responseOrderProducts.forEach((product) => {
-                  const found = this.menuProducts.find((menuProduct) => menuProduct.id === product.productId)
-                  if (found != null) {
-                    orderAndProduct.products.push(found)
-                  }
-                })
-              },
-              (error: HttpErrorResponse) => {
-                alert(error.message);
+          // Procura pelos produtos dessa ordem
+          this.ordersService.getAllOrderProductsFromOrder(1).subscribe(
+            (responseOrderProducts: OrderProduct[]) => {
+              
+              let element: OrderAndProducts = {
+                id: order.id,
+                order: order,
+                orderProducts: responseOrderProducts,
+                products: []
               }
 
-            );
-          }
-          this.ordersAndProducts.push(orderAndProduct);
-          console.log(JSON.stringify(this.ordersAndProducts))
-        })
+              // Encontrou os produtos da ordem
+              // Adiciona os produtos na lista de produtos
+              responseOrderProducts.forEach((product) => {
+                const found = this.menuProducts.find((menuProduct) => menuProduct.id === product.productId)
+                if (found != null) {
+                  element.products.push(found)
+                }
+              })
 
+              this.ordersAndProducts.push(element);
+            },
+            (error: HttpErrorResponse) => {
+              alert(error.message);
+            }
+
+          );
+        })
       },
       (error: HttpErrorResponse) => {
         alert(error.message);
@@ -186,7 +167,7 @@ export class LastOrdersComponent implements OnInit {
 
   // Método loadUserData
   // Este método é responsável por colocar as informações do usuário atual no formulário de perfil
-  changeOrderStatus(status: string, value: number, userId: number, orderId?: number) {
+  changeOrderStatus(status: string, value: number, userId: number, orderId: number) {
     const order: Order = {
       id: orderId,
       userId: userId,
@@ -262,51 +243,45 @@ export class LastOrdersComponent implements OnInit {
 
   // Método submitStars
   // Ao terminar de avaliar os itens o usuário pode clicar no boitão de avaliar. Ao fazê-lo, o método passará por cada um dos produtos da ordem e
-  // verificará quais estrelas foram atribuídas ao produto. 
-
-  // Caso já tenha recebido uma avaliação, o método removerá esse elemento antigo e substituirá com um novo elemento contendo as novas estrelas que o 
-  // usuário atribuiu para o item. Se o método não encontrar uma avaliação prévia para o item, então essa avaliação é simplesmente alocada no ratings.
-  // Por fim, o método passa por cada uma das estrelas até chegar na estrela naquela usuário atribuiu para o item, ativando-as ou desativando-as de 
-  // acordo com o booleano activate: 
-  // Atribuindo estrelas -> true para ativar as estrelas preenchidas e desativar as estrelas sem preenchimento
-  // Removendo estrelas -> false para ativar as estrelas sem preenchimento e desativar as estrelas com preenchimento.
+  // verificará quais estrelas foram atribuídas ao produto e fará o update do ProductOrder correspondente.
   submitStars(order: OrderAndProducts) {
     let newRating = 0;
     for (let i = 0; i < order.products.length; i++) {
       const found = this.ratings.find((rating) => rating.productId === order.products[i].id)
       if (found != null) {
-        newRating = (order.products[i].score + found?.stars) / 2;
-      } else {
-        newRating = (order.products[i].score + 0) / 2;
+        newRating = found?.stars;
       }
 
-      let updatedProduct: Product = {
-        id: order.products[i].id,
-        score: newRating,
-        name: order.products[i].name,
-        value: order.products[i].value,
-        type: order.products[i].type,
-        quantity: order.products[i].quantity,
-        stock: order.products[i].stock,
-        image: order.products[i].image
+      let updatedOrderProduct: OrderProduct = {
+        id: order.orderProducts[i].id,
+        orderId: order.orderProducts[i].orderId,
+        productId: order.orderProducts[i].productId,
+        quantity: order.orderProducts[i].quantity,
+        name: order.orderProducts[i].name,
+        score: newRating
       }
-      this.productsService.updateProduct(updatedProduct).subscribe(
-        (response: Product) => {
+      this.ordersService.updateOrderProduct(updatedOrderProduct).subscribe(
+        (response: OrderProduct) => {
           alert('Avaliação enviada com sucesso!')
-          this.productsService.getAllProducts().subscribe(
-            (response: any) => {
-              setCart(response);
-            },
-            (error: HttpErrorResponse) => {
-              alert("Não foi possível atualizar o cardápio");
-            }
-          );
+          window.location.reload();
         },
         (error: HttpErrorResponse) => {
           alert(error.message);
         }
       );
     }
+  }
+
+  getOrderData(order: OrderAndProducts){
+    return order.order;
+  }
+
+  getOrderProductData(order: OrderAndProducts, index: number){
+    return order.orderProducts[index];
+  }
+
+  getProductData(order: OrderAndProducts){
+    return order.products
   }
 }
 

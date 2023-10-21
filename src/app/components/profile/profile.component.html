@@ -20,50 +20,50 @@
 
                 <div class="input-container">
                     <span>Nome:</span>
-                    <input type="text" placeholder="Nome" [(ngModel)]="nome" disabled="admin">
+                    <input type="text" placeholder="Nome" [(ngModel)]="nome" disabled="{{user.admin}}">
                 </div>
 
                 <div class="input-container">
                     <span>E-mail:</span>
-                    <input type="text" placeholder="E-mail" [(ngModel)]="email" disabled="admin">
+                    <input type="text" placeholder="E-mail" [(ngModel)]="email" disabled="{{user.admin}}">
                 </div>
 
                 <div class="input-container">
                     <span>Telefone:</span>
-                    <input type="text" placeholder="Telefone" [(ngModel)]="telefone" disabled="admin">
+                    <input type="text" placeholder="Telefone" [(ngModel)]="telefone" disabled="{{user.admin}}">
                 </div>
 
                 <div class="endereco">
                     <div class="input-container rua">
                         <span>Rua:</span>
-                        <input type="text" placeholder="Rua" [(ngModel)]="rua" disabled="admin">
+                        <input type="text" placeholder="Rua" [(ngModel)]="rua" disabled="{{user.admin}}">
                     </div>
 
                     <div class="input-container numero">
                         <span>Número:</span>
-                        <input type="text" placeholder="Número" [(ngModel)]="numero" disabled="admin">
+                        <input type="text" placeholder="Número" [(ngModel)]="numero" disabled="{{user.admin}}">
                     </div>
                 </div>
 
                 <div class="endereco">
                     <div class="input-container rua">
                         <span>Bairro:</span>
-                        <input type="text" placeholder="Bairro" [(ngModel)]="bairro" disabled="admin">
+                        <input type="text" placeholder="Bairro" [(ngModel)]="bairro" disabled="{{user.admin}}">
                     </div>
 
                     <div class="input-container numero">
                         <span>CEP:</span>
-                        <input type="text" placeholder="CEP" [(ngModel)]="cep" disabled="admin">
+                        <input type="text" placeholder="CEP" [(ngModel)]="cep" disabled="{{user.admin}}">
                     </div>
                 </div>
 
                 <div class="input-container">
                     <span>Senha:</span>
-                    <input type="password" placeholder="Senha" [(ngModel)]="senha" disabled="admin">
+                    <input type="password" placeholder="Senha" [(ngModel)]="senha" disabled="{{user.admin}}">
                 </div>
 
                 <div class="button-area" (click)="submitNewUser()">
-                    <button class="button" disabled="admin">
+                    <button class="button" [disabled]="user.admin">
                         <span>Salvar</span>
                     </button>
                 </div>

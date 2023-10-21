@@ -56,6 +56,7 @@ export class LoginComponent implements OnInit {
   // obtém um retorno positivo e permite ou nega o login.
   logIn() {
     const user: User = {
+      id: 0,
       name: "",
       email: this.emailLogin,
       phone: "",
@@ -84,6 +85,7 @@ export class LoginComponent implements OnInit {
   // e adiciona os dados do usuário na base.
   register() {
     const user: User = {
+      id: 0,
       name: this.nameRegister,
       email: this.emailRegister,
       phone: this.phoneRegister,
@@ -145,6 +147,8 @@ export class LoginComponent implements OnInit {
 
         this.usersService.updateUser(newUser).subscribe((responseUpdate: any) => {
           alert("Senha alterada com sucesso!");
+          this.login = true;
+          this.esqueciSenha = false;
         },
           (error: HttpErrorResponse) => {
             alert("Não foi possível alterar a senha do usuário.");

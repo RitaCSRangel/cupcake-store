@@ -1,9 +1,10 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
+import { OrdersService } from 'src/app/services/orders/orders.service';
 import { Product } from 'src/app/services/products/product-model';
 import { ProductsService } from 'src/app/services/products/products.service';
 import { User } from 'src/app/services/users/user-model';
-import { checkLogin, getCart, setCart } from 'src/app/utils/utils';
+import { calculateScore, checkLogin, getCart, setCart } from 'src/app/utils/utils';
 
 @Component({
   selector: 'app-products-menu',
@@ -38,14 +39,15 @@ export class ProductsMenuComponent implements OnInit {
 
   // -------- Método Construtor --------
   constructor(
-    private productsService: ProductsService // Injection da classe ProductsService para poder chamar os métodos de API definidos nela
+    private productsService: ProductsService, // Injection da classe ProductsService para poder chamar os métodos de API definidos nela
+    private ordersService: OrdersService
   ) { }
 
   // -------- Métodos do ciclo de vida do componente --------
   ngOnInit(): void {
-    console.log(this.cart)
     this.loadCart();
     this.loadLoginFeatures();
+    calculateScore(this.cart, this.ordersService);
   }
 
   // -------- Métodos da Classe --------

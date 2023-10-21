@@ -1,10 +1,12 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Product } from 'src/app/services/products/product-model';
-import { checkLogin, getCart, setCart, setUser } from 'src/app/utils/utils';
+import { calculateScore, checkLogin, getCart, setCart, setUser } from 'src/app/utils/utils';
 import { HeaderComponent } from '../header/header.component';
 import { User } from 'src/app/services/users/user-model';
 import { ProductsService } from 'src/app/services/products/products.service';
 import { HttpErrorResponse } from '@angular/common/http';
+import { OrdersService } from 'src/app/services/orders/orders.service';
+import { OrderProduct } from 'src/app/services/orders/order-model';
 
 @Component({
   selector: 'app-landing-page',
@@ -28,7 +30,8 @@ export class LandingPageComponent implements OnInit {
 
   // -------- Método Construtor --------
   constructor(
-    private productsService: ProductsService // Injection da classe ProductsService para poder chamar os métodos de API definidos nela
+    private productsService: ProductsService, // Injection da classe ProductsService para poder chamar os métodos de API definidos nela
+    private ordersService: OrdersService
   ) { }
 
   // -------- Métodos do ciclo de vida do componente --------
@@ -67,7 +70,7 @@ export class LandingPageComponent implements OnInit {
         this.products.sort((itemA, itemB) => (itemA.score < itemB.score) ? 1 : (itemA.score > itemB.score) ? -1 : 0);
 
         // Armazenar na storage session
-        setCart(this.products);
+        calculateScore(this.products, this.ordersService);
       },
       (error: HttpErrorResponse) => {
         alert(error.message);
