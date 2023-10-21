@@ -133,7 +133,7 @@ export class LoginComponent implements OnInit {
         const newUser: User = {
           id: responseSearch.id,
           name: responseSearch.name,
-          email: this.emailLogin,
+          email: this.emailRecovery,
           phone: responseSearch.phone,
           rua: responseSearch.rua,
           numero: responseSearch.numero,

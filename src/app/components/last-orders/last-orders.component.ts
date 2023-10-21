@@ -229,12 +229,13 @@ export class LastOrdersComponent implements OnInit {
       }
 
     } else {
-      for (let i = 0; i <= star.stars; i++) {
-        document.getElementById(`star-${i}-${star.listIndex}-on`)?.classList.remove('visible');
-        document.getElementById(`star-${i}-${star.listIndex}-on`)?.classList.add('hidden');
+      for (let i = starNumber; i <= star.stars; i++) {
+        console.log(i)
+        document.getElementById(`star-${i+1}-${star.listIndex}-on`)?.classList.remove('visible');
+        document.getElementById(`star-${i+1}-${star.listIndex}-on`)?.classList.add('hidden');
 
-        document.getElementById(`star-${i}-${star.listIndex}-off`)?.classList.remove('hidden');
-        document.getElementById(`star-${i}-${star.listIndex}-off`)?.classList.add('visible');
+        document.getElementById(`star-${i+1}-${star.listIndex}-off`)?.classList.remove('hidden');
+        document.getElementById(`star-${i+1}-${star.listIndex}-off`)?.classList.add('visible');
       }
     }
 
@@ -262,14 +263,15 @@ export class LastOrdersComponent implements OnInit {
       }
       this.ordersService.updateOrderProduct(updatedOrderProduct).subscribe(
         (response: OrderProduct) => {
-          alert('Avaliação enviada com sucesso!')
-          window.location.reload();
         },
         (error: HttpErrorResponse) => {
           alert(error.message);
         }
       );
     }
+
+    alert('Avaliação enviada com sucesso!')
+    window.location.reload();
   }
 
   getOrderData(order: OrderAndProducts){

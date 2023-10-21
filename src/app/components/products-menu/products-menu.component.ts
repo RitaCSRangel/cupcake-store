@@ -138,7 +138,7 @@ export class ProductsMenuComponent implements OnInit {
   removeProduct(index: number){
     this.productsService.deleteProduct(index).subscribe(
       (response: any) => {
-        alert("Produto adicionado!");
+        alert("Produto removido!");
         this.productsService.getAllProducts().subscribe(
           (response: any) => {
             setCart(response);

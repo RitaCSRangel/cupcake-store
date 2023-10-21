@@ -117,7 +117,6 @@ export class PaymentMethodComponent implements OnInit {
           }
           this.ordersService.addOrderProduct(orderProduct).subscribe(
             (response: OrderProduct) => {
-              alert('Pedido realizado com sucesso!')
             },
             (error: HttpErrorResponse) => {
               alert(error.message);
